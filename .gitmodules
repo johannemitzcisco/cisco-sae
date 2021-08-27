@@ -1,0 +1,3 @@
+[submodule "poap-nso"]
+	path = poap-nso
+	url = git@github.com:johannemitzcisco/poap-nso.git
