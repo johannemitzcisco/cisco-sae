@@ -1,0 +1,13 @@
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <devices xmlns="http://tail-f.com/ns/ncs">
+    <authgroups>
+      <group>
+        <name>Cloud-Service-Platform</name>
+        <default-map>
+          <remote-name>admin</remote-name>
+          <remote-password>$8$PaaCgfrYb5y/AjrC8Ro4gT4EJ0S4scd+BzM34ssMxGI=</remote-password>
+        </default-map>
+      </group>
+    </authgroups>
+  </devices>
+</config>

@@ -1,0 +1,13 @@
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <devices xmlns="http://tail-f.com/ns/ncs">
+    <authgroups>
+      <group>
+        <name>Elastic-Services-Controller</name>
+        <default-map>
+          <remote-name>admin</remote-name>
+          <remote-password>$8$Q38wlBNpxFc0FbZ68MNqwwGjIXTQZw53bt8KPAYfTZ8=</remote-password>
+        </default-map>
+      </group>
+    </authgroups>
+  </devices>
+</config>

@@ -1,0 +1,29 @@
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <devices xmlns="http://tail-f.com/ns/ncs">
+    <device>
+      <name>csp-1</name>
+      <address>10.2.1.73</address>
+      <port>2022</port>
+      <ssh>
+        <host-key>
+          <algorithm>ssh-rsa</algorithm>
+          <key-data>AAAAB3NzaC1yc2EAAAADAQABAAABAQCihUkUnc7EOSZqznZs4HF+IVQ4SCc+O1V1CodLTO6/
+NzLf0rbaueaHvWjJg+Sf8WRM+ZRrIAGYsjyCNiLTmJFOEOekBGPy1uvFl9DDMOazlwHIDsdm
+hj99E144lMswceHfVWrCu/qQaR1yqMerlFSCV3QCqbL15DDdTT8Tsr0BHJJh0s+rijUTyHJk
+r+k+StG6+jZPuWG1CYmTK0TJ3DTKY3pgGj3RUc8ISDXlYVB4vy+bjXGepowWsqP6CfL9HGqT
+qDl4mSNKiDbkOcqy8Rm9pnt/qWryw0xgAHjsU7sxtdOSeiKtUyZrWsJKeLyTglhOtrZ0PyGN
+QmNjRUek6mTJ</key-data>
+        </host-key>
+      </ssh>
+      <authgroup>Cloud-Service-Platform</authgroup>
+      <device-type>
+        <netconf>
+          <ned-id xmlns:csp-nc-1.0="http://tail-f.com/ns/ned-id/csp-nc-1.0">csp-nc-1.0:csp-nc-1.0</ned-id>
+        </netconf>
+      </device-type>
+      <state>
+        <admin-state>unlocked</admin-state>
+      </state>
+    </device>
+  </devices>
+</config>
