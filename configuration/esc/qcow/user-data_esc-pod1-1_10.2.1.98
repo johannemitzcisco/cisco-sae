@@ -1,0 +1,73 @@
+#cloud-config
+# Create Password currently "10-9=One"
+# python3 -c "from passlib.context import CryptContext; import getpass; print(CryptContext(schemes=['sha512_crypt']).hash(getpass.getpass()))"
+users:
+ - name: admin
+   gecos: admin
+   groups: esc-user
+   passwd: $6$rounds=4096$xUTGo1htjF7xOmGR$fjzGUTzL4FvXxbDqnkNax8jPdKQwcT/QkBdc2iQm5/t3pEuiVYooJOUDsDP03a4nbDWa7qrZ0VwwM.G6zQW1t/
+   lock-passwd: false
+   homedir: /home/admin
+   sudo: ALL=(ALL) ALL
+
+ssh_pwauth: True
+
+write_files:
+# System Configuration
+- path: /etc/cloud/cloud.cfg.d/sys-cfg.yaml
+  content: |
+    network:            # Network configuration
+      version: 1        # Network config version 1
+      config:
+      - type: physical  # Represents a “physical” network device, typically Ethernet-based.
+        name: eth0      # The network device name
+        subnets:        # Multiple subnet entries can be defined under this portion.{}
+        - type: static  # Specify the subnet type. set to 'static' to configure this interface with a static IPv4.
+          address: 10.2.1.98   # ESC's Static IP Address
+          netmask: 255.255.255.0  # Netmask
+          dns_nameservers: ['10.2.1.29']
+          routes:
+          - gateway: 10.2.1.254
+            network: 0.0.0.0
+            netmask: 0.0.0.0
+# ESC Configuration
+- path: /opt/cisco/esc/esc-config/esc-cfg.yaml
+  content: |
+    ha:
+      vri: 22 # this number is ranged from 1 ~ 254. You can randomly choose one but make sure it won't conflict with other VRRP ID in the same subnet
+      mode: drbd             # Only 'drbd' is supported now.
+      vip: 10.2.1.97 #The VIP for ESC HA
+      vif: eth0
+      nodes:
+      - ipaddr: 10.2.1.98  # ESC HA's own IP Address
+      - ipaddr: 10.2.1.99 # The peer ID Address of ESC HA
+    confd:
+      init_aaa_users:
+      - name: admin
+        passwd: $6$rounds=4096$xUTGo1htjF7xOmGR$fjzGUTzL4FvXxbDqnkNax8jPdKQwcT/QkBdc2iQm5/t3pEuiVYooJOUDsDP03a4nbDWa7qrZ0VwwM.G6zQW1t/
+      escmanager:
+        open_ports:
+        - '8080'
+        - '8443'
+        url:
+        - http://0.0.0.0:8080/ESCManager
+        - https://0.0.0.0:8443/ESCManager
+    esc_service: {}
+# Params
+- path: /opt/cisco/esc/esc-config/esc_params.conf
+  content: |
+    default.enable_cascade_deletion=true
+bootcmd:
+- [ cloud-init-per, once, disable_ipv6_eth0, sh, -c, "echo net.ipv6.conf.eth0.disable_ipv6 = 1 >> /etc/sysctl.conf"]
+# Update the ESC-HA value with your own hostname
+- [ cloud-init-per, once, update_host_name, sh, -c, "echo esc-pod1-1 >> /etc/hostname && hostnamectl set-hostname esc-pod1-1"]
+- [ cloud-init-per, once, update_hosts, sh, -c, "echo 127.0.0.1 esc-pod1-1 >> /etc/hosts"]
+- [ cloud-init-per, once, update_time1, sh, -c, "sed 's/0.centos.pool.ntp.org/ntp.esl.cisco.com/' /etc/chrony.conf > /tmp/conf123a"]
+- [ cloud-init-per, once, update_time2, sh, -c, "sed '/[123].centos.pool.ntp.org/d' /tmp/conf123a > /tmp/conf123b"]
+- [ cloud-init-per, once, update_time3, sh, -c, "cp /tmp/conf123b /etc/chrony.conf"]
+- [ cloud-init-per, once, update_time4, sh, -c, "timedatectl set-timezone America/New_York"]
+- [ cloud-init-per, once, update_time5, sh, -c, "systemctl restart chronyd"]
+runcmd:
+- [ cloud-init-per, once, confd_keygen_root, sh, -c, "/usr/bin/escadm confd keygen --user root"]
+- [ cloud-init-per, once, confd_keygen_admin, sh, -c, "/usr/bin/escadm confd keygen --user admin"]
+- [ cloud-init-per, once, esc_service_start, sh, -c, "chkconfig esc_service on && service esc_service start"] # You must include this line
