@@ -1,0 +1,10 @@
+local-hostname: sae-pod1
+network-interfaces: |
+  iface eth0 inet static
+  address 10.2.1.13
+  netmask 255.255.255.0
+  gateway 10.2.1.254
+  dns-nameservers 10.2.1.29
+bootcmd:
+  ifdown eth0
+  ifup eth0

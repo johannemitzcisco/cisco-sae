@@ -1,0 +1,33 @@
+#cloud-config
+ 
+network:
+  config: disabled
+ 
+users:
+  - name: admin
+#   Do not modify the next 4 lines.  Leave as is.
+    lock-passwd: false
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: wheel,ncsadmin,ncsoper
+    ssh_pwauth: True
+
+# Make sure to have the same user as defined in the users section above.
+# Make sure to change password for both root and admin users after the VM is deployed
+chpasswd:
+  list: |
+    root:10-9=One
+    admin:10-9=One
+  expire: False
+
+# Do not modify the section below
+runcmd:
+  - sudo ifdown eth0
+  - sudo ifup eth0
+  - sudo sed -i "s/ONBOOT=no/ONBOOT=yes\nNM_CONTROLLED=no/" /etc/sysconfig/network-scripts/ifcfg-eth0
+  - sudo sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/" /etc/ssh/sshd_config
+  # The following line change the ulimit for user admin to 64000
+  - sudo sed -i -e '$a\admin       soft    nproc     64000' /etc/security/limits.d/20-nproc.conf
+  - sudo service sshd restart
+  - sudo service network restart
+  - sudo service httpd restart
+  - sleep 30
