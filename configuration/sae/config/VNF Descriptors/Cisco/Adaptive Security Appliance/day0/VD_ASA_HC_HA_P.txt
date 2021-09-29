@@ -1,0 +1,175 @@
+ASA Version 9.12(2)
+!
+hostname $HOSTNAME
+!
+interface management0/0
+  management-only
+  description int-mgmt-net
+  nameif management
+  security-level 100
+  ip address $MGMT_IP_ADDRESS $MGMT_IP_MASK standby $MGMT_NEIGHBOR_1_IP_ADDRESS
+  no shutdown
+!
+interface GigabitEthernet0/0
+!
+interface GigabitEthernet0/1
+!
+interface TenGigabitEthernet0/0
+  nameif INSIDE
+  security-level 100
+  ip address $NIC_3_IP_ADDRESS $NIC_3_IP_MASK standby $NIC_3_NEIGHBOR_1_IP_ADDRESS
+  no shutdown
+!
+interface TenGigabitEthernet0/1
+  nameif OUTSIDE
+  security-level 0
+  ip address $NIC_4_IP_ADDRESS $NIC_4_IP_MASK standby $NIC_4_NEIGHBOR_1_IP_ADDRESS 
+  no shutdown
+!
+interface Redundant1
+ description LAN Failover Interface
+ member-interface GigabitEthernet0/0
+!
+interface Redundant2
+ description STATE Failover Interface
+ member-interface GigabitEthernet0/1
+!
+crypto key generate rsa modulus 2048
+  terminal width 511
+!
+username admin password $PASSWORD privilege 15
+ssh 0.0.0.0 0.0.0.0 management
+!
+aaa authentication ssh console LOCAL
+aaa authorization exec LOCAL
+!
+route management 0.0.0.0 0.0.0.0 $MGMT_GATEWAY 1
+!
+ssh version 2
+ssh key-exchange group dh-group14-sha1
+!
+enable password $PASSWORD
+!
+debug menu license 25 development
+!
+dns domain-lookup management
+dns name-server $NAME_SERVER1 $NAME_SERVER2
+!
+failover
+failover lan unit primary
+failover lan interface lan-failover Redundant1
+failover link state-failover Redundant2
+failover interface ip lan-failover $NIC_1_IP_ADDRESS $NIC_1_IP_MASK standby $NIC_1_NEIGHBOR_1_IP_ADDRESS
+failover interface ip state-failover $NIC_2_IP_ADDRESS $NIC_2_IP_MASK standby $NIC_2_NEIGHBOR_1_IP_ADDRESS
+timeout xlate 3:00:00
+timeout pat-xlate 0:00:30
+timeout conn 1:00:00 half-closed 0:10:00 udp 0:02:00 sctp 0:02:00 icmp 0:00:02
+timeout sunrpc 0:10:00 h323 0:05:00 h225 1:00:00 mgcp 0:05:00 mgcp-pat 0:05:00
+timeout sip 0:30:00 sip_media 0:02:00 sip-invite 0:03:00 sip-disconnect 0:02:00
+timeout sip-provisional-media 0:02:00 uauth 0:05:00 absolute
+timeout tcp-proxy-reassembly 0:01:00
+timeout floating-conn 0:00:00
+timeout conn-holddown 0:00:15
+timeout igp stale-route 0:01:10
+user-identity default-domain LOCAL
+aaa authentication ssh console LOCAL
+aaa authorization exec LOCAL
+aaa authorization http console LOCAL
+aaa authentication login-history
+!
+regex blockex1 "default\.com"
+class-map inspection_default
+ match default-inspection-traffic
+class-map type inspect http match-any block-url-class
+ match request header host regex blockex1
+!
+policy-map type inspect dns preset_dns_map
+ parameters
+  message-length maximum client auto
+  message-length maximum 512
+  no tcp-inspection
+policy-map type inspect http block-url-policy
+ parameters
+ class block-url-class
+  drop-connection log
+policy-map global_policy
+ class inspection_default
+  inspect ip-options
+  inspect netbios
+  inspect rtsp
+  inspect sunrpc
+  inspect tftp
+  inspect xdmcp
+  inspect dns preset_dns_map
+  inspect ftp
+  inspect h323 h225
+  inspect h323 ras
+  inspect rsh
+  inspect esmtp
+  inspect sqlnet
+  inspect sip
+  inspect skinny
+  inspect http block-url-policy
+ class class-default
+  set connection decrement-ttl
+policy-map type inspect dns migrated_dns_map_2
+ parameters
+  message-length maximum client auto
+  message-length maximum 512
+  no tcp-inspection
+policy-map type inspect dns migrated_dns_map_1
+ parameters
+  message-length maximum client auto
+  message-length maximum 512
+  no tcp-inspection
+!
+service-policy global_policy global
+license smart
+feature tier standard
+throughput level 10G
+!
+call-home
+source-interface management
+profile CiscoTAC-1
+  active
+  destination transport-method http
+  no destination address http https://tools.cisco.com/its/service/oddce/services/DDCEService
+  destination address http https://sch-alpha.cisco.com/its/service/oddce/services/DDCEService
+profile License
+  active
+  destination transport-method http
+  no destination address http https://tools.cisco.com/its/service/oddce/services/DDCEService
+  destination address http https://sch-alpha.cisco.com/its/service/oddce/services/DDCEService
+!
+clock timezone PST -8
+clock summer-time PDT recurring
+!
+ip http client source-interface GigabitEthernet1
+service internal
+service call-home
+license smart enable
+ip domain lookup
+debug menu license 25 development
+crypto ca trustpool import url https://www.cisco.com/security/pki/trs/ios_core.p7b
+license smart register idtoken $LICENSE_TOKEN force
+!
+router bgp $AS_NUMBER
+  bgp log-neighbor-changes
+  bgp router-id $MGMT_IP_ADDRESS
+  address-family ipv4 unicast
+    neighbor $NIC_3_NEIGHBOR_2_IP_ADDRESS remote-as $NIC_3_NEIGHBOR_2_ASNUMBER
+    neighbor $NIC_3_NEIGHBOR_2_IP_ADDRESS activate
+    neighbor $NIC_4_NEIGHBOR_2_IP_ADDRESS remote-as $NIC_4_NEIGHBOR_2_ASNUMBER
+    neighbor $NIC_4_NEIGHBOR_3_IP_ADDRESS remote-as $NIC_4_NEIGHBOR_2_ASNUMBER
+    neighbor $NIC_4_NEIGHBOR_2_IP_ADDRESS activate
+    neighbor $NIC_4_NEIGHBOR_3_IP_ADDRESS activate
+    maximum-paths 2
+    no auto-summary
+    no synchronization
+!
+access-list ALL extended permit tcp any any eq www
+access-list ALL extended permit tcp any any eq ssh
+access-list ALL extended permit tcp any any eq 5001
+access-list ALL extended permit tcp any any eq 5201
+access-group ALL in interface INSIDE
+

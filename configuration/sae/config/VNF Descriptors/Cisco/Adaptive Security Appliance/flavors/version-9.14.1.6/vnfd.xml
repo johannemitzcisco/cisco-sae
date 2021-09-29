@@ -3,7 +3,7 @@
     <vnfd>
       <id>Cisco_Adaptive_Security_Appliance</id>
       <vdu>
-        <id>10Gbps-1_Inside-1_Outside-v9_16_2</id>
+        <id>10Gbps-1_Inside-1_Outside-v9_14_1_6</id>
         <name>10Gbps Basic</name>
         <description>ASA Utilizing SRIOV interfaces with 1 inside interface and 1 outside interface</description>
         <int-cpd>
@@ -60,7 +60,7 @@
         <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">day0-config</artifact>
       </vdu>
       <vdu>
-        <id>10Gbps-1_Inside-1_Outside-HA-v9_16_2</id>
+        <id>10Gbps-1_Inside-1_Outside-HA-v9_14_1_6</id>
         <name>10Gbps Basic High Availability</name>
         <description>ASA Utilizing SRIOV interfaces with 1 inside, 1 outside, and 1 HA heartbeat interfaces</description>
         <int-cpd>
@@ -129,9 +129,9 @@
         <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">day0-config</artifact>
       </vdu>
       <sw-image-desc>
-        <id>9.16.2</id>
-        <name>asav9-16-2.qcow2</name>
-        <version>9.16.2</version>
+        <id>9.14.1.6</id>
+        <name>asav9-14-1.6.qcow2</name>
+        <version>9.14.1.6</version>
         <container-format>bare</container-format>
         <disk-format>qcow2</disk-format>
         <additional-setting xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
@@ -144,27 +144,27 @@
         </additional-setting>
       </sw-image-desc>
       <df>
-        <id>10Gbps-1_Inside-1_Outside-v9_16_2</id>
+        <id>10Gbps-1_Inside-1_Outside-v9_14_1_6</id>
         <vdu-profile>
-          <id>10Gbps-1_Inside-1_Outside-v9_16_2</id>
+          <id>10Gbps-1_Inside-1_Outside-v9_14_1_6</id>
         </vdu-profile>
         <instantiation-level>
           <id>Cisco_Adaptive_Security_Appliance</id>
           <vdu-level>
-            <vdu-id>10Gbps-1_Inside-1_Outside-v9_16_2</vdu-id>
+            <vdu-id>10Gbps-1_Inside-1_Outside-v9_14_1_6</vdu-id>
           </vdu-level>
         </instantiation-level>
         <default-instantiation-level>Cisco_Adaptive_Security_Appliance</default-instantiation-level>
       </df>
       <df>
-        <id>10Gbps-1_Inside-1_Outside-HA-v9_16_2</id>
+        <id>10Gbps-1_Inside-1_Outside-HA-v9_14_1_6</id>
         <vdu-profile>
-          <id>10Gbps-1_Inside-1_Outside-HA-v9_16_2</id>
+          <id>10Gbps-1_Inside-1_Outside-HA-v9_14_1_6</id>
         </vdu-profile>
         <instantiation-level>
           <id>Cisco_Adaptive_Security_Appliance</id>
           <vdu-level>
-            <vdu-id>10Gbps-1_Inside-1_Outside-HA-v9_16_2</vdu-id>
+            <vdu-id>10Gbps-1_Inside-1_Outside-HA-v9_14_1_6</vdu-id>
           </vdu-level>
         </instantiation-level>
         <default-instantiation-level>Cisco_Adaptive_Security_Appliance</default-instantiation-level>
