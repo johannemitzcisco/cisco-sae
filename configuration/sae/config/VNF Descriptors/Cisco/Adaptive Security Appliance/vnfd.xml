@@ -229,12 +229,12 @@
       <df>
         <id>SRIOV-HA</id>
         <vdu-profile>
-          <id>ARIOV-HA</id>
+          <id>SRIOV-HA</id>
         </vdu-profile>
         <instantiation-level>
           <id>Cisco_Adaptive_Security_Appliance</id>
           <vdu-level>
-            <vdu-id>RIOV-HA</vdu-id>
+            <vdu-id>SRIOV-HA</vdu-id>
           </vdu-level>
         </instantiation-level>
         <default-instantiation-level>Cisco_Adaptive_Security_Appliance</default-instantiation-level>
