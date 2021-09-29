@@ -283,7 +283,7 @@
       <df>
         <id>Large-1_Endpoint-1_Chain-v9_16_12_03</id>
         <vdu-profile>
-          <id>LLarge-1_Endpoint-1_Chain-v9_16_12_03</id>
+          <id>Large-1_Endpoint-1_Chain-v9_16_12_03</id>
         </vdu-profile>
         <instantiation-level>
           <id>CSR1000v</id>
