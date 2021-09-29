@@ -1,0 +1,157 @@
+hostname $HOSTNAME
+license smart enable
+username admin privilege 15 password $PASSWORD
+ip domain-name $DOMAIN_NAME
+crypto key generate rsa modulus 1024
+!
+enable secret $PASSWORD
+ip vrf mgmt
+  description management
+!
+ip name-server vrf mgmt $NAME_SERVER1
+!
+interface GigabitEthernet1
+  description VR_MANAGEMENT_INTERFACE
+  ip vrf forwarding mgmt
+  ip address $MGMT_IP_ADDRESS $MGMT_IP_MASK
+  ip nbar protocol-discovery
+  negotiation auto
+  no shut
+!
+interface GigabitEthernet2
+  description EEP_FACING_INTERFACE
+  ip address $NIC_1_IP_ADDRESS $NIC_1_IP_MASK
+  no negotiation auto
+  speed 10000
+  no shut
+!
+interface GigabitEthernet3
+  description CHAIN_FACING_INTERFACE
+  ip address $NIC_2_IP_ADDRESS $NIC_2_IP_MASK
+  no negotiation auto
+  speed 10000
+  no shut
+!
+line pro 0
+  exec-timeout 30 0
+!
+line con 0
+  stopbits 1
+line vty 0 4
+  privilege level 15
+  password 7 01100F175804575D72
+  login local
+  transport input all
+line vty 5 15
+  privilege level 15
+  login local
+  transport input ssh
+!
+ip tftp source-interface GigabitEthernet1
+ip ssh source-interface GigabitEthernet1
+ip ssh version 2
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip route vrf mgmt 0.0.0.0 0.0.0.0 $MGMT_GATEWAY
+no ip ssh stricthostkeycheck
+!
+license boot level ax
+service call-home
+call-home
+  contact-email-addr callhome@cisco.com
+  mail-server 173.36.12.72 priority 1
+  vrf mgmt
+  no http secure server-identity-check
+  alert-group-config snapshot
+  add-command "show license tech su"
+  profile "CiscoTAC-1"
+    active
+    destination transport-method http
+    no destination transport-method email
+    destination address http https://sch-alpha.cisco.com/its/service/oddce/services/DDCEService
+    no destination address http https://tools.cisco.com/its/service/oddce/services/DDCEService
+!
+router bgp $AS_NUMBER
+  bgp router-id $MGMT_IP_ADDRESS
+  bgp log-neighbor-changes
+  neighbor $NIC_1_NEIGHBOR_1_IP_ADDRESS remote-as $NIC_1_NEIGHBOR_1_ASNUMBER
+  neighbor $NIC_1_NEIGHBOR_1_IP_ADDRESS local-as $NIC_1_NEIGHBOR_1_REMOTE_LOCAL_AS no-prepend replace-as
+  neighbor $NIC_2_NEIGHBOR_1_IP_ADDRESS remote-as $NIC_2_NEIGHBOR_1_ASNUMBER
+  address-family ipv4 unicast
+    neighbor $NIC_1_NEIGHBOR_1_IP_ADDRESS activate
+    neighbor $NIC_1_NEIGHBOR_1_IP_ADDRESS soft-reconfiguration inbound
+    neighbor $NIC_2_NEIGHBOR_1_IP_ADDRESS activate
+    neighbor $NIC_2_NEIGHBOR_1_IP_ADDRESS soft-reconfiguration inbound
+    maximum-paths 2
+  exit-address-family
+!
+ip http client source-interface GigabitEthernet1
+service internal
+service call-home
+license smart enable
+alias exec token license smart register idtoken $LICENSE_TOKEN
+ip domain lookup
+do test license smart dev-cert enable
+do token force
+do write mem
+platform hardware throughput level MB 10000
+!
+snmp-server community public
+snmp-server ifindex persist
+flow exporter LIVEACTION-FLOWEXPORTER-IPFIX
+description DO NOT MODIFY. USED BY LIVEACTION.
+export-protocol ipfix
+destination 9.9.9.60 vrf mgmt
+source GigabitEthernet1
+transport udp 2055
+template data timeout 600
+option c3pl-policy-table
+option interface-table
+option application-table
+option c3pl-class-table
+option sampler-table
+option vrf-table
+option application-attributes
+exit
+flow record LIVEACTION-FLOWRECORD
+description DO NOT MODIFY. USED BY LIVEACTION.
+match flow direction
+match interface input
+match ipv4 destination address
+match ipv4 protocol
+match ipv4 source address
+match ipv4 tos
+match transport destination-port
+match transport source-port
+collect application http host
+collect application name
+collect application ssl common-name
+collect counter bytes
+collect counter packets
+collect flow sampler
+collect interface output
+collect ipv4 destination mask
+collect ipv4 dscp
+collect ipv4 id
+collect ipv4 source mask
+collect ipv4 source prefix
+collect routing destination as
+collect routing next-hop address ipv4
+collect routing source as
+collect timestamp sys-uptime first
+collect timestamp sys-uptime last
+collect transport tcp flags
+exit
+flow monitor LIVEACTION-FLOWMONITOR
+description DO NOT MODIFY. USED BY LIVEACTION.
+exporter LIVEACTION-FLOWEXPORTER-IPFIX
+cache timeout inactive 10
+cache timeout active 60
+record LIVEACTION-FLOWRECORD
+exit
+interface GigabitEthernet1
+ip flow monitor LIVEACTION-FLOWMONITOR input
+ip flow monitor LIVEACTION-FLOWMONITOR output
+!
+end
+

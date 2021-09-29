@@ -1,0 +1,74 @@
+hostname CSR-EPGW-$MGMT_IP_ADDRESS
+license smart enable
+username admin privilege 15 password $PASSWORD
+ip domain-name $DOMAIN_NAME
+crypto key generate rsa modulus 1024
+!
+enable secret $PASSWORD
+ip vrf mgmt
+  description management
+!
+ip name-server vrf mgmt $NAME_SERVER1
+!
+interface GigabitEthernet1
+  description VR_MANAGEMENT_INTERFACE
+  ip vrf forwarding mgmt
+  ip address $MGMT_IP_ADDRESS $MGMT_IP_MASK
+  negotiation auto
+  no shut
+!
+line pro 0
+  exec-timeout 30 0
+!
+line con 0
+  stopbits 1
+line vty 0 4
+  privilege level 15
+  password 7 01100F175804575D72
+  login local
+  transport input all
+line vty 5 15
+  privilege level 15
+  login local
+  transport input ssh
+!
+ip tftp source-interface GigabitEthernet1
+ip ssh source-interface GigabitEthernet1
+ip ssh version 2
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip route vrf mgmt 0.0.0.0 0.0.0.0 $MGMT_GATEWAY
+no ip ssh stricthostkeycheck
+!
+router bgp $AS_NUMBER
+  bgp router-id $MGMT_IP_ADDRESS
+  bgp log-neighbor-changes
+!
+license boot level ax
+service call-home
+call-home
+  contact-email-addr callhome@cisco.com
+  mail-server 173.36.12.72 priority 1
+  vrf mgmt
+  no http secure server-identity-check
+  alert-group-config snapshot
+  add-command "show license tech su"
+  profile "CiscoTAC-1"
+    active
+    destination transport-method http
+    no destination transport-method email
+    destination address http https://sch-alpha.cisco.com/its/service/oddce/services/DDCEService
+    no destination address http https://tools.cisco.com/its/service/oddce/services/DDCEService
+!
+ip http client source-interface GigabitEthernet1
+service internal
+service call-home
+license smart enable
+alias exec token license smart register idtoken $LICENSE_TOKEN
+ip domain lookup
+do test license smart dev-cert enable
+do token force
+platform hardware throughput level MB 10000
+do write mem
+!
+

@@ -1,0 +1,302 @@
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <nfv xmlns="urn:etsi:nfv:yang:etsi-nfv-descriptors">
+    <vnfd>
+      <id>Cisco_Cloud_Services_Router</id>
+      <vdu>
+        <id>Large-2_Endpoint-2_Chain-v9_17_03_04a</id>
+        <name>Large 2 Endpoint 2 Chain</name>
+        <description>CSR utilizing SRIOV interfaces with 2 External Endpoint interfaces and 2 Chain interfaces</description>
+        <int-cpd>
+          <id>To-Chain-1</id>
+          <int-virtual-link-desc>To-Chain-1</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>R-SRIOV</name>
+            <support-mandatory>true</support-mandatory>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X710|X520</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">3</interface-id>
+        </int-cpd>
+        <int-cpd>
+          <id>To-Chain-2</id>
+          <int-virtual-link-desc>To-Chain-2</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>R-SRIOV</name>
+            <support-mandatory>true</support-mandatory>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X710|X520</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">4</interface-id>
+        </int-cpd>
+        <int-cpd>
+          <id>To-Endpoint-1</id>
+          <int-virtual-link-desc>To-Endpoint-1</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>R-SRIOV</name>
+            <support-mandatory>true</support-mandatory>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X710|X520</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">1</interface-id>
+        </int-cpd>
+        <int-cpd>
+          <id>To-Endpoint-2</id>
+          <int-virtual-link-desc>To-Endpoint-2</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>R-SRIOV</name>
+            <support-mandatory>true</support-mandatory>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X710|X520</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">2</interface-id>
+        </int-cpd>
+        <int-cpd>
+          <id>Management</id>
+          <int-virtual-link-desc>Management</int-virtual-link-desc>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">0</interface-id>
+          <management xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo"/>
+        </int-cpd>
+        <virtual-compute-desc>Large-4CPU-4GB</virtual-compute-desc>
+        <virtual-storage-desc>8GB</virtual-storage-desc>
+        <sw-image-desc>9.17.03.04a</sw-image-desc>
+        <device-type xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+          <cli>
+            <ned-id>cisco-ios-cli-6.74</ned-id>
+          </cli>
+        </device-type>
+        <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">iosxe_config.txt</artifact>
+      </vdu>
+      <vdu>
+        <id>Large-2_Endpoint-1_Chain-v9_17_03_04a</id>
+        <name>Large 2 Endpoint 1 Chain</name>
+        <description>CSR utilizing SRIOV interfaces with 2 External Endpoint interfaces and 1 Chain interfaces</description>
+        <int-cpd>
+          <id>To-Chain-1</id>
+          <int-virtual-link-desc>To-Chain-1</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>R-SRIOV</name>
+            <support-mandatory>true</support-mandatory>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X710|X520</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">3</interface-id>
+        </int-cpd>
+        <int-cpd>
+          <id>To-Endpoint-1</id>
+          <int-virtual-link-desc>To-Endpoint-1</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>R-SRIOV</name>
+            <support-mandatory>true</support-mandatory>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X710|X520</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">1</interface-id>
+        </int-cpd>
+        <int-cpd>
+          <id>To-Endpoint-2</id>
+          <int-virtual-link-desc>To-Endpoint-2</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>R-SRIOV</name>
+            <support-mandatory>true</support-mandatory>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X710|X520</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">2</interface-id>
+        </int-cpd>
+        <int-cpd>
+          <id>Management</id>
+          <int-virtual-link-desc>Management</int-virtual-link-desc>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">0</interface-id>
+          <management xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo"/>
+        </int-cpd>
+        <virtual-compute-desc>Large-4CPU-4GB</virtual-compute-desc>
+        <virtual-storage-desc>8GB</virtual-storage-desc>
+        <sw-image-desc>9.17.03.04a</sw-image-desc>
+        <device-type xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+          <cli>
+            <ned-id>cisco-ios-cli-6.74</ned-id>
+          </cli>
+        </device-type>
+        <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">iosxe_config.txt</artifact>
+      </vdu>
+      <vdu>
+        <id>Large-1_Endpoint-1_Chain-v9_17_03_04a</id>
+        <name>Large 1 Endpoint 1 Chain</name>
+        <description>CSR utilizing SRIOV interfaces with 1 External Endpoint interfaces and 1 Chain interfaces</description>
+        <int-cpd>
+          <id>To-Chain-1</id>
+          <int-virtual-link-desc>To-Chain-1</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>R-SRIOV</name>
+            <support-mandatory>true</support-mandatory>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X710|X520</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">3</interface-id>
+        </int-cpd>
+        <int-cpd>
+          <id>To-Endpoint-1</id>
+          <int-virtual-link-desc>To-Endpoint-1</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>R-SRIOV</name>
+            <support-mandatory>true</support-mandatory>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X710|X520</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">1</interface-id>
+        </int-cpd>
+        <int-cpd>
+          <id>Management</id>
+          <int-virtual-link-desc>Management</int-virtual-link-desc>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">0</interface-id>
+          <management xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo"/>
+        </int-cpd>
+        <virtual-compute-desc>Large-4CPU-4GB</virtual-compute-desc>
+        <virtual-storage-desc>8GB</virtual-storage-desc>
+        <sw-image-desc>9.17.03.04a</sw-image-desc>
+        <device-type xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+          <cli>
+            <ned-id>cisco-ios-cli-6.74</ned-id>
+          </cli>
+        </device-type>
+        <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">iosxe_config.txt</artifact>
+      </vdu>
+      <sw-image-desc>
+        <id>9.17.03.04a</id>
+        <name>csr1000v-universalk9.17.03.04a.qcow2</name>
+        <version>9.17.03.04a</version>
+        <container-format>bare</container-format>
+        <disk-format>qcow2</disk-format>
+        <additional-setting xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+          <id>disk_bus</id>
+          <value>virtio</value>
+        </additional-setting>
+        <additional-setting xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+          <id>disk_type</id>
+          <value>virtio</value>
+        </additional-setting>
+        <additional-setting xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+          <id>e1000_net</id>
+          <value>false</value>
+        </additional-setting>
+        <additional-setting xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+          <id>serial_console</id>
+          <value>false</value>
+        </additional-setting>
+        <additional-setting xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+          <id>virtio_net</id>
+          <value>false</value>
+        </additional-setting>
+      </sw-image-desc>
+      <df>
+        <id>Large-2_Endpoint-2_Chain-v9_17_03_04a</id>
+        <vdu-profile>
+          <id>Large-2_Endpoint-2_Chain-v9_17_03_04a</id>
+        </vdu-profile>
+        <instantiation-level>
+          <id>CSR1000v</id>
+          <vdu-level>
+            <vdu-id>Large-2_Endpoint-2_Chain-v9_17_03_04a</vdu-id>
+          </vdu-level>
+        </instantiation-level>
+        <default-instantiation-level>CSR1000v</default-instantiation-level>
+      </df>
+      <df>
+        <id>Large-2_Endpoint-1_Chain-v9_17_03_04a</id>
+        <vdu-profile>
+          <id>Large-2_Endpoint-1_Chain-v9_17_03_04a</id>
+        </vdu-profile>
+        <instantiation-level>
+          <id>CSR1000v</id>
+          <vdu-level>
+            <vdu-id>Large-2_Endpoint-1_Chain-v9_17_03_04a</vdu-id>
+          </vdu-level>
+        </instantiation-level>
+        <default-instantiation-level>CSR1000v</default-instantiation-level>
+      </df>
+      <df>
+        <id>Large-1_Endpoint-1_Chain-v9_17_03_04a</id>
+        <vdu-profile>
+          <id>LLarge-1_Endpoint-1_Chain-v9_17_03_04a</id>
+        </vdu-profile>
+        <instantiation-level>
+          <id>CSR1000v</id>
+          <vdu-level>
+            <vdu-id>Large-1_Endpoint-1_Chain-v9_17_03_04a</vdu-id>
+          </vdu-level>
+        </instantiation-level>
+        <default-instantiation-level>CSR1000v</default-instantiation-level>
+      </df>
+      <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+        <id>iosxe_config.txt</id>
+      </artifact>
+      <service-type xmlns="http://cisco.com/nso/cisco-saeUi">CSRv</service-type>
+    </vnfd>
+  </nfv>
+</config>

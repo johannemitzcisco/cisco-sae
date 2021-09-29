@@ -1,0 +1,132 @@
+hostname CSR-EPGW-$MGMT_IP_ADDRESS
+license smart enable
+username admin privilege 15 password $PASSWORD
+ip domain-name $DOMAIN_NAME
+crypto key generate rsa modulus 1024
+!
+enable secret $PASSWORD
+enable password $EPASSWORD
+ip vrf mgmt
+  description management
+ip vrf VRF-$NIC_1_VLAN
+  rd $NIC_1_VLAN:$NIC_1_VLAN
+ip vrf VRF-$NIC_2_VLAN
+  rd $NIC_2_VLAN:$NIC_2_VLAN
+!
+ip name-server vrf mgmt $NAME_SERVER1
+!
+interface GigabitEthernet1
+  description VR_MANAGEMENT_INTERFACE
+  ip vrf forwarding mgmt
+  ip address $MGMT_IP_ADDRESS $MGMT_IP_MASK
+  negotiation auto
+  no shut
+!
+interface GigabitEthernet2
+  description FACING_EEP1
+  ip vrf forwarding VRF-$NIC_1_VLAN
+  ip address $NIC_1_IP_ADDRESS $NIC_1_IP_MASK
+  no negotiation auto
+  speed 10000
+  no shut
+!
+interface GigabitEthernet3
+  description FACING_EEP2
+  ip vrf forwarding VRF-$NIC_2_VLAN
+  ip address $NIC_2_IP_ADDRESS $NIC_2_IP_MASK
+  no negotiation auto
+  speed 10000
+  no shut
+!
+interface GigabitEthernet4
+  description FABRIC_FACING_EEP1
+  ip vrf forwarding VRF-$NIC_1_VLAN
+  ip address $NIC_3_IP_ADDRESS $NIC_3_IP_MASK
+  no negotiation auto
+  speed 10000
+  no shut
+!
+interface GigabitEthernet5
+  description FABRIC_FACING_EEP2
+  ip vrf forwarding VRF-$NIC_2_VLAN
+  ip address $NIC_4_IP_ADDRESS $NIC_4_IP_MASK
+  no negotiation auto
+  speed 10000
+  no shut
+!
+line pro 0
+  exec-timeout 30 0
+!
+line con 0
+  stopbits 1
+line vty 0 4
+  privilege level 15
+  password 7 01100F175804575D72
+  login local
+  transport input all
+line vty 5 15
+  privilege level 15
+  login local
+  transport input ssh
+!
+ip tftp source-interface GigabitEthernet1
+ip ssh source-interface GigabitEthernet1
+ip ssh version 2
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip route vrf mgmt 0.0.0.0 0.0.0.0 $MGMT_GATEWAY
+no ip ssh stricthostkeycheck
+!
+router bgp $AS_NUMBER
+  bgp router-id $MGMT_IP_ADDRESS
+  bgp log-neighbor-changes
+  address-family ipv4 vrf VRF-$NIC_1_VLAN
+    neighbor $NIC_1_NEIGHBOR_1_IP_ADDRESS remote-as $NIC_1_NEIGHBOR_1_ASNUMBER
+    neighbor $NIC_1_NEIGHBOR_1_IP_ADDRESS local-as $NIC_1_NEIGHBOR_1_REMOTE_LOCAL_AS no-prepend replace-as
+    neighbor $NIC_1_NEIGHBOR_1_IP_ADDRESS activate
+    neighbor $NIC_1_NEIGHBOR_1_IP_ADDRESS soft-reconfiguration inbound
+    neighbor $NIC_3_NEIGHBOR_1_IP_ADDRESS remote-as $NIC_3_NEIGHBOR_1_ASNUMBER
+    neighbor $NIC_3_NEIGHBOR_1_IP_ADDRESS activate
+    neighbor $NIC_3_NEIGHBOR_1_IP_ADDRESS soft-reconfiguration inbound
+    maximum-paths 2
+    bgp router-id $NIC_1_IP_ADDRESS
+  exit-address-family
+  address-family ipv4 vrf VRF-$NIC_2_VLAN
+    neighbor $NIC_2_NEIGHBOR_1_IP_ADDRESS remote-as $NIC_2_NEIGHBOR_1_ASNUMBER
+    neighbor $NIC_2_NEIGHBOR_1_IP_ADDRESS local-as $NIC_2_NEIGHBOR_1_REMOTE_LOCAL_AS no-prepend replace-as
+    neighbor $NIC_2_NEIGHBOR_1_IP_ADDRESS activate
+    neighbor $NIC_2_NEIGHBOR_1_IP_ADDRESS soft-reconfiguration inbound
+    neighbor $NIC_4_NEIGHBOR_1_IP_ADDRESS remote-as $NIC_4_NEIGHBOR_1_ASNUMBER
+    neighbor $NIC_4_NEIGHBOR_1_IP_ADDRESS activate
+    neighbor $NIC_4_NEIGHBOR_1_IP_ADDRESS soft-reconfiguration inbound
+    maximum-paths 2
+    bgp router-id $NIC_2_IP_ADDRESS
+  exit-address-family
+!
+license boot level ax
+service call-home
+call-home
+  contact-email-addr callhome@cisco.com
+  mail-server 173.36.12.72 priority 1
+  vrf mgmt
+  no http secure server-identity-check
+  alert-group-config snapshot
+  add-command "show license tech su"
+  profile "CiscoTAC-1"
+    active
+    destination transport-method http
+    no destination transport-method email
+    destination address http https://sch-alpha.cisco.com/its/service/oddce/services/DDCEService
+    no destination address http https://tools.cisco.com/its/service/oddce/services/DDCEService
+!
+ip http client source-interface GigabitEthernet1
+service internal
+service call-home
+license smart enable
+alias exec token license smart register idtoken $LICENSE_TOKEN
+ip domain lookup
+do test license smart dev-cert enable
+platform hardware throughput level MB 10000
+do write mem
+do token force
+
