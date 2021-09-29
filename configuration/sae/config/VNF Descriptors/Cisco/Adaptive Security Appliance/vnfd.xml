@@ -4,152 +4,53 @@
       <id>Cisco_Adaptive_Security_Appliance</id>
       <provider>Cisco</provider>
       <product-name>Adaptive Security Appliance</product-name>
-      <software-version>9.16.2</software-version>
-      <version>9.16.2</version>
+      <software-version>Variable</software-version>
+      <version>1</version>
       <product-info-description>Virtual Adaptive Security Appliance</product-info-description>
       <vnfm-info>csp-vim:csp-vim</vnfm-info>
-      <vdu>
-        <id>SRIOV</id>
-        <name>High_Bandwith-1_IN-1_OUT</name>
-        <description>ASA Utilizing SRIOV interfaces with 1 inside interface and 1 outside interface</description>
-        <int-cpd>
-          <id>Inside</id>
-          <int-virtual-link-desc>Inside</int-virtual-link-desc>
-          <virtual-network-interface-requirement>
-            <name>R-SRIOV</name>
-            <support-mandatory>true</support-mandatory>
-            <network-interface-requirements>
-              <key>NIC_TYPE</key>
-              <value>X710|X520</value>
-            </network-interface-requirements>
-            <network-interface-requirements>
-              <key>NW_TYPE</key>
-              <value>SRIOV</value>
-            </network-interface-requirements>
-          </virtual-network-interface-requirement>
-          <layer-protocol>ipv4</layer-protocol>
-          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">1</interface-id>
-        </int-cpd>
-        <int-cpd>
-          <id>Management</id>
-          <int-virtual-link-desc>Management</int-virtual-link-desc>
-          <layer-protocol>ipv4</layer-protocol>
-          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">0</interface-id>
-          <management xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo"/>
-        </int-cpd>
-        <int-cpd>
-          <id>Outside</id>
-          <int-virtual-link-desc>Outside</int-virtual-link-desc>
-          <virtual-network-interface-requirement>
-            <name>R-SRIOV</name>
-            <support-mandatory>true</support-mandatory>
-            <network-interface-requirements>
-              <key>NIC_TYPE</key>
-              <value>X710|X520</value>
-            </network-interface-requirements>
-            <network-interface-requirements>
-              <key>NW_TYPE</key>
-              <value>SRIOV</value>
-            </network-interface-requirements>
-          </virtual-network-interface-requirement>
-          <layer-protocol>ipv4</layer-protocol>
-          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">2</interface-id>
-        </int-cpd>
-        <virtual-compute-desc>vcd</virtual-compute-desc>
-        <virtual-storage-desc>root</virtual-storage-desc>
-        <sw-image-desc>sid</sw-image-desc>
-        <device-type xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
-          <cli>
-            <ned-id>cisco-asa-cli-6.13</ned-id>
-          </cli>
-        </device-type>
-        <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">day0-config</artifact>
-      </vdu>
-      <vdu>
-        <id>SRIOV-HA</id>
-        <name>High_Bandwith-1_IN-1_OUT-1_Heartbeat-1_Failover</name>
-        <description>ASA Utilizing SRIOV interfaces with 1 inside, 1 outside, and 1 HA heartbeat interfaces</description>
-        <int-cpd>
-          <id>Failover</id>
-          <int-virtual-link-desc>Failover</int-virtual-link-desc>
-          <layer-protocol>ethernet</layer-protocol>
-          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">1</interface-id>
-        </int-cpd>
-        <int-cpd>
-          <id>Inside</id>
-          <int-virtual-link-desc>Inside</int-virtual-link-desc>
-          <virtual-network-interface-requirement>
-            <name>R-SRIOV</name>
-            <support-mandatory>true</support-mandatory>
-            <network-interface-requirements>
-              <key>NIC_TYPE</key>
-              <value>X710|X520</value>
-            </network-interface-requirements>
-            <network-interface-requirements>
-              <key>NW_TYPE</key>
-              <value>SRIOV</value>
-            </network-interface-requirements>
-          </virtual-network-interface-requirement>
-          <layer-protocol>ipv4</layer-protocol>
-          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">3</interface-id>
-        </int-cpd>
-        <int-cpd>
-          <id>Management</id>
-          <int-virtual-link-desc>Management</int-virtual-link-desc>
-          <layer-protocol>ipv4</layer-protocol>
-          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">0</interface-id>
-          <management xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo"/>
-        </int-cpd>
-        <int-cpd>
-          <id>Outside</id>
-          <int-virtual-link-desc>Outside</int-virtual-link-desc>
-          <virtual-network-interface-requirement>
-            <name>R-SRIOV</name>
-            <support-mandatory>true</support-mandatory>
-            <network-interface-requirements>
-              <key>NIC_TYPE</key>
-              <value>X710|X520</value>
-            </network-interface-requirements>
-            <network-interface-requirements>
-              <key>NW_TYPE</key>
-              <value>SRIOV</value>
-            </network-interface-requirements>
-          </virtual-network-interface-requirement>
-          <layer-protocol>ipv4</layer-protocol>
-          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">4</interface-id>
-        </int-cpd>
-        <int-cpd>
-          <id>State</id>
-          <int-virtual-link-desc>State</int-virtual-link-desc>
-          <layer-protocol>ethernet</layer-protocol>
-          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">2</interface-id>
-        </int-cpd>
-        <virtual-compute-desc>vcd</virtual-compute-desc>
-        <virtual-storage-desc>root</virtual-storage-desc>
-        <sw-image-desc>sid</sw-image-desc>
-        <device-type xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
-          <cli>
-            <ned-id>cisco-asa-cli-6.13</ned-id>
-          </cli>
-        </device-type>
-        <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">day0-config</artifact>
-      </vdu>
       <virtual-compute-desc>
-        <id>vcd</id>
+        <id>100Mbps-2CPU-8GB</id>
+        <virtual-memory>
+          <size>8.0</size>
+        </virtual-memory>
+        <virtual-cpu>
+          <num-virtual-cpu>2</num-virtual-cpu>
+        </virtual-cpu>
+      </virtual-compute-desc>
+      <virtual-compute-desc>
+        <id>1Gbps-2CPU-16GB</id>
         <virtual-memory>
           <size>16.0</size>
+        </virtual-memory>
+        <virtual-cpu>
+          <num-virtual-cpu>2</num-virtual-cpu>
+        </virtual-cpu>
+      </virtual-compute-desc>
+      <virtual-compute-desc>
+        <id>2Gbps-4CPU-24GB</id>
+        <virtual-memory>
+          <size>24.0</size>
+        </virtual-memory>
+        <virtual-cpu>
+          <num-virtual-cpu>4</num-virtual-cpu>
+        </virtual-cpu>
+      </virtual-compute-desc>
+      <virtual-compute-desc>
+        <id>10Gbps-8CPU-32GB</id>
+        <virtual-memory>
+          <size>32.0</size>
         </virtual-memory>
         <virtual-cpu>
           <num-virtual-cpu>8</num-virtual-cpu>
         </virtual-cpu>
       </virtual-compute-desc>
       <virtual-storage-desc>
-        <id>root</id>
+        <id>8GB</id>
         <type-of-storage>root-storage</type-of-storage>
-        <size-of-storage>16</size-of-storage>
+        <size-of-storage>8</size-of-storage>
       </virtual-storage-desc>
       <sw-image-desc>
-        <id>sid</id>
+        <id>9.16.2</id>
         <name>asav9-16-2.qcow2</name>
         <version>9.16.2</version>
         <container-format>bare</container-format>
@@ -164,18 +65,6 @@
         </additional-setting>
       </sw-image-desc>
       <int-virtual-link-desc>
-        <id>Failover</id>
-        <connectivity-type>
-          <layer-protocol>ethernet</layer-protocol>
-        </connectivity-type>
-      </int-virtual-link-desc>
-      <int-virtual-link-desc>
-        <id>Inside</id>
-        <connectivity-type>
-          <layer-protocol>ipv4</layer-protocol>
-        </connectivity-type>
-      </int-virtual-link-desc>
-      <int-virtual-link-desc>
         <id>Management</id>
         <connectivity-type>
           <layer-protocol>ipv4</layer-protocol>
@@ -188,19 +77,23 @@
         </connectivity-type>
       </int-virtual-link-desc>
       <int-virtual-link-desc>
+        <id>Inside</id>
+        <connectivity-type>
+          <layer-protocol>ipv4</layer-protocol>
+        </connectivity-type>
+      </int-virtual-link-desc>
+      <int-virtual-link-desc>
+        <id>Failover</id>
+        <connectivity-type>
+          <layer-protocol>ethernet</layer-protocol>
+        </connectivity-type>
+      </int-virtual-link-desc>
+      <int-virtual-link-desc>
         <id>State</id>
         <connectivity-type>
           <layer-protocol>ethernet</layer-protocol>
         </connectivity-type>
       </int-virtual-link-desc>
-      <ext-cpd>
-        <id>Failover</id>
-        <int-virtual-link-desc>Failover</int-virtual-link-desc>
-      </ext-cpd>
-      <ext-cpd>
-        <id>Inside</id>
-        <int-virtual-link-desc>Inside</int-virtual-link-desc>
-      </ext-cpd>
       <ext-cpd>
         <id>Management</id>
         <int-virtual-link-desc>Management</int-virtual-link-desc>
@@ -210,35 +103,17 @@
         <int-virtual-link-desc>Outside</int-virtual-link-desc>
       </ext-cpd>
       <ext-cpd>
+        <id>Inside</id>
+        <int-virtual-link-desc>Inside</int-virtual-link-desc>
+      </ext-cpd>
+      <ext-cpd>
+        <id>Failover</id>
+        <int-virtual-link-desc>Failover</int-virtual-link-desc>
+      </ext-cpd>
+      <ext-cpd>
         <id>State</id>
         <int-virtual-link-desc>State</int-virtual-link-desc>
       </ext-cpd>
-      <df>
-        <id>SRIOV</id>
-        <vdu-profile>
-          <id>SRIOV</id>
-        </vdu-profile>
-        <instantiation-level>
-          <id>Cisco_Adaptive_Security_Appliance</id>
-          <vdu-level>
-            <vdu-id>SRIOV</vdu-id>
-          </vdu-level>
-        </instantiation-level>
-        <default-instantiation-level>Cisco_Adaptive_Security_Appliance</default-instantiation-level>
-      </df>
-      <df>
-        <id>SRIOV-HA</id>
-        <vdu-profile>
-          <id>SRIOV-HA</id>
-        </vdu-profile>
-        <instantiation-level>
-          <id>Cisco_Adaptive_Security_Appliance</id>
-          <vdu-level>
-            <vdu-id>SRIOV-HA</vdu-id>
-          </vdu-level>
-        </instantiation-level>
-        <default-instantiation-level>Cisco_Adaptive_Security_Appliance</default-instantiation-level>
-      </df>
       <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
         <id>day0-config</id>
       </artifact>
