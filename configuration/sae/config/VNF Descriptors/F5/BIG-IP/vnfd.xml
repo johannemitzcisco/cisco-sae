@@ -1,0 +1,111 @@
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <nfv xmlns="urn:etsi:nfv:yang:etsi-nfv-descriptors">
+    <vnfd xmlns:nfv="urn:etsi:nfv:yang:etsi-nfv-descriptors">
+      <id>F5 BIG-IP</id>
+      <provider>F5</provider>
+      <product-name>BIG-IP Virtual Edition</product-name>
+      <software-version>Variable</software-version>
+      <version>1</version>
+      <product-info-name>BIG-IP Virtual Edition</product-info-name>
+      <product-info-description>Vitual BIG-IP</product-info-description>
+      <vnfm-info>csp-vim:csp-vim</vnfm-info>
+      <virtual-compute-desc>
+        <id>Demo-2CPU-4GB</id>
+        <virtual-memory>
+          <size>4.0</size>
+        </virtual-memory>
+        <virtual-cpu>
+          <num-virtual-cpu>2</num-virtual-cpu>
+        </virtual-cpu>
+      </virtual-compute-desc>
+      <virtual-storage-desc>
+        <id>20GB</id>
+        <type-of-storage>root-storage</type-of-storage>
+        <size-of-storage>20</size-of-storage>
+      </virtual-storage-desc>
+      <int-virtual-link-desc>
+        <id>EXTRA</id>
+        <connectivity-type>
+          <layer-protocol>ethernet</layer-protocol>
+        </connectivity-type>
+      </int-virtual-link-desc>
+      <int-virtual-link-desc>
+        <id>INSIDE</id>
+        <connectivity-type>
+          <layer-protocol>ethernet</layer-protocol>
+        </connectivity-type>
+      </int-virtual-link-desc>
+      <int-virtual-link-desc>
+        <id>MGMT</id>
+        <connectivity-type>
+          <layer-protocol>ethernet</layer-protocol>
+        </connectivity-type>
+      </int-virtual-link-desc>
+      <int-virtual-link-desc>
+        <id>OUTSIDE</id>
+        <connectivity-type>
+          <layer-protocol>ethernet</layer-protocol>
+        </connectivity-type>
+      </int-virtual-link-desc>
+      <int-virtual-link-desc>
+        <id>PEER</id>
+        <connectivity-type>
+          <layer-protocol>ethernet</layer-protocol>
+        </connectivity-type>
+      </int-virtual-link-desc>
+      <ext-cpd>
+        <id>EXTRA</id>
+        <int-virtual-link-desc>EXTRA</int-virtual-link-desc>
+      </ext-cpd>
+      <ext-cpd>
+        <id>INSIDE</id>
+        <int-virtual-link-desc>INSIDE</int-virtual-link-desc>
+      </ext-cpd>
+      <ext-cpd>
+        <id>MGMT</id>
+        <int-virtual-link-desc>MGMT</int-virtual-link-desc>
+      </ext-cpd>
+      <ext-cpd>
+        <id>OUTSIDE</id>
+        <int-virtual-link-desc>OUTSIDE</int-virtual-link-desc>
+      </ext-cpd>
+      <ext-cpd>
+        <id>PEER</id>
+        <int-virtual-link-desc>PEER</int-virtual-link-desc>
+      </ext-cpd>
+      <df>
+        <id>VDU_F5v_SRIOV</id>
+        <vdu-profile>
+          <id>VDU_F5v_SRIOV</id>
+        </vdu-profile>
+        <instantiation-level>
+          <id>F5</id>
+          <vdu-level>
+            <vdu-id>VDU_F5v_SRIOV</vdu-id>
+          </vdu-level>
+        </instantiation-level>
+        <default-instantiation-level>F5</default-instantiation-level>
+      </df>
+      <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+        <id>CREATE_ISO</id>
+        <type>create-iso</type>
+        <option>
+          <name>genisoimage_params</name>
+          <value>-appid bootstrap</value>
+          <value>-input-charset utf-8</value>
+          <value>-joliet</value>
+          <value>-rock</value>
+          <value>-untranslated-filenames</value>
+          <value>-volid bootstrap</value>
+        </option>
+      </artifact>
+      <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+        <id>openstack/latest/meta_data.json</id>
+      </artifact>
+      <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+        <id>openstack/latest/user_data</id>
+      </artifact>
+      <service-type xmlns="http://cisco.com/nso/cisco-saeUi">F5</service-type>
+    </vnfd>
+  </nfv>
+</config>
