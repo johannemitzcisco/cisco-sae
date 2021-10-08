@@ -73,19 +73,6 @@
         <id>PEER</id>
         <int-virtual-link-desc>PEER</int-virtual-link-desc>
       </ext-cpd>
-      <df>
-        <id>VDU_F5v_SRIOV</id>
-        <vdu-profile>
-          <id>VDU_F5v_SRIOV</id>
-        </vdu-profile>
-        <instantiation-level>
-          <id>F5</id>
-          <vdu-level>
-            <vdu-id>VDU_F5v_SRIOV</vdu-id>
-          </vdu-level>
-        </instantiation-level>
-        <default-instantiation-level>F5</default-instantiation-level>
-      </df>
       <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
         <id>CREATE_ISO</id>
         <type>create-iso</type>
