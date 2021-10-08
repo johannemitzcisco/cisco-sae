@@ -1,0 +1,195 @@
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <nfv xmlns="urn:etsi:nfv:yang:etsi-nfv-descriptors">
+    <vnfd xmlns:nfv="urn:etsi:nfv:yang:etsi-nfv-descriptors">
+      <id>F5 BIG-IP</id>
+      <vdu>
+        <id>Demo-1_Inside-1_Outside-v15.1.0.9</id>
+        <name>Demo</name>
+        <description>High performance</description>
+        <int-cpd>
+          <id>EXTRA</id>
+          <int-virtual-link-desc>EXTRA</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>EXTRA</name>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X520|X710|XL710</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">1</interface-id>
+        </int-cpd>
+        <int-cpd>
+          <id>INSIDE</id>
+          <int-virtual-link-desc>INSIDE</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>INSIDE</name>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X520|X710|XL710</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">2</interface-id>
+        </int-cpd>
+        <int-cpd>
+          <id>MGMT</id>
+          <int-virtual-link-desc>MGMT</int-virtual-link-desc>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">0</interface-id>
+          <management xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo"/>
+        </int-cpd>
+        <int-cpd>
+          <id>OUTSIDE</id>
+          <int-virtual-link-desc>OUTSIDE</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>OUTSIDE</name>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X520|X710|XL710</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">3</interface-id>
+        </int-cpd>
+        <virtual-compute-desc>Demo-2CPU-4GB</virtual-compute-desc>
+        <virtual-storage-desc>20GB</virtual-storage-desc>
+        <sw-image-desc>15.1.0.9</sw-image-desc>
+        <device-type xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+          <generic>
+            <ned-id>f5-bigip-gen-3.21</ned-id>
+          </generic>
+          <port>22</port>
+        </device-type>
+        <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">CREATE_ISO</artifact>
+        <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">openstack/latest/meta_data.json</artifact>
+        <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">openstack/latest/user_data</artifact>
+      </vdu>
+      <vdu>
+        <id>Demo-1_Inside-1_Outside-HA-v15.1.0.9</id>
+        <name>Demo HA</name>
+        <description>High performance with HA</description>
+        <int-cpd>
+          <id>INSIDE</id>
+          <int-virtual-link-desc>INSIDE</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>INSIDE</name>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X520|X710|XL710</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">2</interface-id>
+        </int-cpd>
+        <int-cpd>
+          <id>MGMT</id>
+          <int-virtual-link-desc>MGMT</int-virtual-link-desc>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">0</interface-id>
+          <management xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo"/>
+        </int-cpd>
+        <int-cpd>
+          <id>OUTSIDE</id>
+          <int-virtual-link-desc>OUTSIDE</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>OUTSIDE</name>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X520|X710|XL710</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">3</interface-id>
+        </int-cpd>
+        <int-cpd>
+          <id>PEER</id>
+          <int-virtual-link-desc>PEER</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>EXTRA</name>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X520|X710|XL710</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">1</interface-id>
+        </int-cpd>
+        <virtual-compute-desc>Demo-2CPU-4GB</virtual-compute-desc>
+        <virtual-storage-desc>20GB</virtual-storage-desc>
+        <sw-image-desc>15.1.0.9</sw-image-desc>
+        <device-type xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+          <generic>
+            <ned-id>f5-bigip-gen-3.21</ned-id>
+          </generic>
+          <port>22</port>
+        </device-type>
+        <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">CREATE_ISO</artifact>
+        <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">openstack/latest/meta_data.json</artifact>
+        <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">openstack/latest/user_data</artifact>
+      </vdu>
+      <sw-image-desc>
+        <id>15.1.0.9</id>
+        <name>BIGIP-15.1.0.9</name>
+        <version>15.1.0.9</version>
+        <container-format>bare</container-format>
+        <disk-format>qcow2</disk-format>
+        <image>BIGIP-15.1.0.2-0.0.9.qcow2</image>
+        <additional-setting xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+          <id>disk_type</id>
+          <value>virtio</value>
+        </additional-setting>
+      </sw-image-desc>
+      <df>
+        <id>Demo-1_Inside-1_Outside-v15.1.0.9</id>
+        <vdu-profile>
+          <id>Demo-1_Inside-1_Outside-v15.1.0.9</id>
+        </vdu-profile>
+        <instantiation-level>
+          <id>F5</id>
+          <vdu-level>
+            <vdu-id>Demo-1_Inside-1_Outside-v15.1.0.9</vdu-id>
+          </vdu-level>
+        </instantiation-level>
+        <default-instantiation-level>F5</default-instantiation-level>
+      </df>
+      <df>
+        <id>Demo-1_Inside-1_Outside-HA-v15.1.0.9</id>
+        <vdu-profile>
+          <id>Demo-1_Inside-1_Outside-HA-v15.1.0.9</id>
+        </vdu-profile>
+        <instantiation-level>
+          <id>F5</id>
+          <vdu-level>
+            <vdu-id>Demo-1_Inside-1_Outside-HA-v15.1.0.9</vdu-id>
+          </vdu-level>
+        </instantiation-level>
+        <default-instantiation-level>F5</default-instantiation-level>
+      </df>
+    </vnfd>
+  </nfv>
+</config>
