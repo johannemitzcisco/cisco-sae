@@ -190,7 +190,7 @@
             </network-interface-requirements>
           </virtual-network-interface-requirement>
           <layer-protocol>ethernet</layer-protocol>
-          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">3</interface-id>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">2</interface-id>
         </int-cpd>
         <int-cpd>
           <id>To-Endpoint</id>
