@@ -175,8 +175,8 @@
         <name>Large 1 Endpoint 1 Chain</name>
         <description>CSR utilizing SRIOV interfaces with 1 External Endpoint interfaces and 1 Chain interfaces</description>
         <int-cpd>
-          <id>To-Chain-1</id>
-          <int-virtual-link-desc>To-Chain-1</int-virtual-link-desc>
+          <id>To-Chain</id>
+          <int-virtual-link-desc>To-Chain</int-virtual-link-desc>
           <virtual-network-interface-requirement>
             <name>R-SRIOV</name>
             <support-mandatory>true</support-mandatory>
@@ -193,8 +193,8 @@
           <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">3</interface-id>
         </int-cpd>
         <int-cpd>
-          <id>To-Endpoint-1</id>
-          <int-virtual-link-desc>To-Endpoint-1</int-virtual-link-desc>
+          <id>To-Endpoint</id>
+          <int-virtual-link-desc>To-Endpoint</int-virtual-link-desc>
           <virtual-network-interface-requirement>
             <name>R-SRIOV</name>
             <support-mandatory>true</support-mandatory>

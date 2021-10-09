@@ -176,7 +176,7 @@
         <description>CSR utilizing SRIOV interfaces with 1 External Endpoint interfaces and 1 Chain interfaces</description>
         <int-cpd>
           <id>To-Chain</id>
-          <int-virtual-link-desc>To-Chain-1</int-virtual-link-desc>
+          <int-virtual-link-desc>To-Chain</int-virtual-link-desc>
           <virtual-network-interface-requirement>
             <name>R-SRIOV</name>
             <support-mandatory>true</support-mandatory>
@@ -194,7 +194,7 @@
         </int-cpd>
         <int-cpd>
           <id>To-Endpoint</id>
-          <int-virtual-link-desc>To-Endpoint-1</int-virtual-link-desc>
+          <int-virtual-link-desc>To-Endpoint</int-virtual-link-desc>
           <virtual-network-interface-requirement>
             <name>R-SRIOV</name>
             <support-mandatory>true</support-mandatory>
