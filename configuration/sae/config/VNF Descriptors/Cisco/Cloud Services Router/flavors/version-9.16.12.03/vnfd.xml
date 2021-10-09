@@ -260,12 +260,12 @@
           <id>Large-2_Endpoint-2_Chain-v9_16_12_03</id>
         </vdu-profile>
         <instantiation-level>
-          <id>CSR1000v</id>
+          <id>Cisco_Cloud_Services_Router</id>
           <vdu-level>
             <vdu-id>Large-2_Endpoint-2_Chain-v9_16_12_03</vdu-id>
           </vdu-level>
         </instantiation-level>
-        <default-instantiation-level>CSR1000v</default-instantiation-level>
+        <default-instantiation-level>Cisco_Cloud_Services_Router</default-instantiation-level>
       </df>
       <df>
         <id>Large-2_Endpoint-1_Chain-v9_16_12_03</id>
@@ -273,12 +273,12 @@
           <id>Large-2_Endpoint-1_Chain-v9_16_12_03</id>
         </vdu-profile>
         <instantiation-level>
-          <id>CSR1000v</id>
+          <id>Cisco_Cloud_Services_Router</id>
           <vdu-level>
             <vdu-id>Large-2_Endpoint-1_Chain-v9_16_12_03</vdu-id>
           </vdu-level>
         </instantiation-level>
-        <default-instantiation-level>CSR1000v</default-instantiation-level>
+        <default-instantiation-level>Cisco_Cloud_Services_Router</default-instantiation-level>
       </df>
       <df>
         <id>Large-1_Endpoint-1_Chain-v9_16_12_03</id>
@@ -286,12 +286,12 @@
           <id>Large-1_Endpoint-1_Chain-v9_16_12_03</id>
         </vdu-profile>
         <instantiation-level>
-          <id>CSR1000v</id>
+          <id>Cisco_Cloud_Services_Router</id>
           <vdu-level>
             <vdu-id>Large-1_Endpoint-1_Chain-v9_16_12_03</vdu-id>
           </vdu-level>
         </instantiation-level>
-        <default-instantiation-level>CSR1000v</default-instantiation-level>
+        <default-instantiation-level>Cisco_Cloud_Services_Router</default-instantiation-level>
       </df>
       <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
         <id>iosxe_config.txt</id>

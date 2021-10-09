@@ -61,6 +61,12 @@
         </connectivity-type>
       </int-virtual-link-desc>
       <int-virtual-link-desc>
+        <id>To-Chain</id>
+        <connectivity-type>
+          <layer-protocol>ethernet</layer-protocol>
+        </connectivity-type>
+      </int-virtual-link-desc>
+      <int-virtual-link-desc>
         <id>To-Chain-1</id>
         <connectivity-type>
           <layer-protocol>ethernet</layer-protocol>
@@ -68,6 +74,12 @@
       </int-virtual-link-desc>
       <int-virtual-link-desc>
         <id>To-Chain-2</id>
+        <connectivity-type>
+          <layer-protocol>ethernet</layer-protocol>
+        </connectivity-type>
+      </int-virtual-link-desc>
+      <int-virtual-link-desc>
+        <id>To-Endpoint</id>
         <connectivity-type>
           <layer-protocol>ethernet</layer-protocol>
         </connectivity-type>
@@ -89,12 +101,20 @@
         <int-virtual-link-desc>Management</int-virtual-link-desc>
       </ext-cpd>
       <ext-cpd>
+        <id>To-Chain</id>
+        <int-virtual-link-desc>To-Chain-1</int-virtual-link-desc>
+      </ext-cpd>
+      <ext-cpd>
         <id>To-Chain-1</id>
         <int-virtual-link-desc>To-Chain-1</int-virtual-link-desc>
       </ext-cpd>
       <ext-cpd>
         <id>To-Chain-2</id>
         <int-virtual-link-desc>To-Chain-2</int-virtual-link-desc>
+      </ext-cpd>
+      <ext-cpd>
+        <id>To-Endpoint</id>
+        <int-virtual-link-desc>To-Endpoint-1</int-virtual-link-desc>
       </ext-cpd>
       <ext-cpd>
         <id>To-Endpoint-1</id>
