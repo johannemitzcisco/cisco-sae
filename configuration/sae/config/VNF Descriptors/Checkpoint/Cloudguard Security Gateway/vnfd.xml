@@ -1,12 +1,12 @@
 <config xmlns="http://tail-f.com/ns/config/1.0">
   <nfv xmlns="urn:etsi:nfv:yang:etsi-nfv-descriptors">
     <vnfd xmlns:nfv="urn:etsi:nfv:yang:etsi-nfv-descriptors">
-      <id>Checkpoint_Cloudguard_Security_Gateway</id>
+      <id>Checkpoint Cloudguard Security Gateway</id>
       <provider>Checkpoint</provider>
       <product-name>Cloudguard Security Gateway</product-name>
       <software-version>Variable</software-version>
       <version>1</version>
-      <product-info-description>Cloudguard Security Gateway</product-info-description>
+      <product-info-description>Cloudguard Security Gateway Firewall</product-info-description>
       <vnfm-info>csp-vim:csp-vim</vnfm-info>
       <virtual-compute-desc>
         <id>2CPU-4GB</id>

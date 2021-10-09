@@ -1,7 +1,7 @@
 <config xmlns="http://tail-f.com/ns/config/1.0">
   <nfv xmlns="urn:etsi:nfv:yang:etsi-nfv-descriptors">
     <vnfd xmlns:nfv="urn:etsi:nfv:yang:etsi-nfv-descriptors">
-      <id>Checkpoint_Cloudguard_Security_Gateway</id>
+      <id>Checkpoint Cloudguard Security Gateway</id>
       <vdu>
         <id>10Gbps-1_Inside-1_Outside-vR81_12152020-DEV</id>
         <name>10Gbps-1_Inside-1_Outside-vR81_12152020-DEV</name>
@@ -81,12 +81,12 @@
           <id>10Gbps-1_Inside-1_Outside-vR81_12152020-DEV</id>
         </vdu-profile>
         <instantiation-level>
-          <id>Checkpoint_Cloudguard_Security_Gateway</id>
+          <id>Checkpoint Cloudguard Security Gateway</id>
           <vdu-level>
             <vdu-id>10Gbps-1_Inside-1_Outside-vR81_12152020-DEV</vdu-id>
           </vdu-level>
         </instantiation-level>
-        <default-instantiation-level>Checkpoint_Cloudguard_Security_Gateway</default-instantiation-level>
+        <default-instantiation-level>Checkpoint Cloudguard Security Gateway</default-instantiation-level>
       </df>
     </vnfd>
   </nfv>

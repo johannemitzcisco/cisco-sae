@@ -7,10 +7,10 @@
         <name>Demo</name>
         <description>High performance</description>
         <int-cpd>
-          <id>EXTRA</id>
-          <int-virtual-link-desc>EXTRA</int-virtual-link-desc>
+          <id>Extra</id>
+          <int-virtual-link-desc>Extra</int-virtual-link-desc>
           <virtual-network-interface-requirement>
-            <name>EXTRA</name>
+            <name>Extra</name>
             <network-interface-requirements>
               <key>NIC_TYPE</key>
               <value>X520|X710|XL710</value>
@@ -24,10 +24,10 @@
           <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">1</interface-id>
         </int-cpd>
         <int-cpd>
-          <id>INSIDE</id>
-          <int-virtual-link-desc>INSIDE</int-virtual-link-desc>
+          <id>Inside</id>
+          <int-virtual-link-desc>Inside</int-virtual-link-desc>
           <virtual-network-interface-requirement>
-            <name>INSIDE</name>
+            <name>Inside</name>
             <network-interface-requirements>
               <key>NIC_TYPE</key>
               <value>X520|X710|XL710</value>
@@ -41,17 +41,17 @@
           <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">2</interface-id>
         </int-cpd>
         <int-cpd>
-          <id>MGMT</id>
-          <int-virtual-link-desc>MGMT</int-virtual-link-desc>
+          <id>Management</id>
+          <int-virtual-link-desc>Management</int-virtual-link-desc>
           <layer-protocol>ethernet</layer-protocol>
           <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">0</interface-id>
           <management xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo"/>
         </int-cpd>
         <int-cpd>
-          <id>OUTSIDE</id>
-          <int-virtual-link-desc>OUTSIDE</int-virtual-link-desc>
+          <id>Outside</id>
+          <int-virtual-link-desc>Outside</int-virtual-link-desc>
           <virtual-network-interface-requirement>
-            <name>OUTSIDE</name>
+            <name>Outside</name>
             <network-interface-requirements>
               <key>NIC_TYPE</key>
               <value>X520|X710|XL710</value>
@@ -82,10 +82,10 @@
         <name>Demo HA</name>
         <description>High performance with HA</description>
         <int-cpd>
-          <id>INSIDE</id>
-          <int-virtual-link-desc>INSIDE</int-virtual-link-desc>
+          <id>Inside</id>
+          <int-virtual-link-desc>Inside</int-virtual-link-desc>
           <virtual-network-interface-requirement>
-            <name>INSIDE</name>
+            <name>Inside</name>
             <network-interface-requirements>
               <key>NIC_TYPE</key>
               <value>X520|X710|XL710</value>
@@ -99,17 +99,17 @@
           <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">2</interface-id>
         </int-cpd>
         <int-cpd>
-          <id>MGMT</id>
-          <int-virtual-link-desc>MGMT</int-virtual-link-desc>
+          <id>Management</id>
+          <int-virtual-link-desc>Management</int-virtual-link-desc>
           <layer-protocol>ethernet</layer-protocol>
           <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">0</interface-id>
           <management xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo"/>
         </int-cpd>
         <int-cpd>
-          <id>OUTSIDE</id>
-          <int-virtual-link-desc>OUTSIDE</int-virtual-link-desc>
+          <id>Outside</id>
+          <int-virtual-link-desc>Outside</int-virtual-link-desc>
           <virtual-network-interface-requirement>
-            <name>OUTSIDE</name>
+            <name>Outside</name>
             <network-interface-requirements>
               <key>NIC_TYPE</key>
               <value>X520|X710|XL710</value>
@@ -123,10 +123,10 @@
           <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">3</interface-id>
         </int-cpd>
         <int-cpd>
-          <id>PEER</id>
-          <int-virtual-link-desc>PEER</int-virtual-link-desc>
+          <id>Peer</id>
+          <int-virtual-link-desc>Peer</int-virtual-link-desc>
           <virtual-network-interface-requirement>
-            <name>EXTRA</name>
+            <name>Extra</name>
             <network-interface-requirements>
               <key>NIC_TYPE</key>
               <value>X520|X710|XL710</value>
@@ -170,12 +170,12 @@
           <id>Demo-1_Inside-1_Outside-v16.1.0.19</id>
         </vdu-profile>
         <instantiation-level>
-          <id>F5</id>
+          <id>F5 BIG-IP</id>
           <vdu-level>
             <vdu-id>Demo-1_Inside-1_Outside-v16.1.0.19</vdu-id>
           </vdu-level>
         </instantiation-level>
-        <default-instantiation-level>F5</default-instantiation-level>
+        <default-instantiation-level>F5 BIG-IP</default-instantiation-level>
       </df>
       <df>
         <id>Demo-1_Inside-1_Outside-HA-v16.1.0.19</id>
@@ -183,12 +183,12 @@
           <id>Demo-1_Inside-1_Outside-HA-v16.1.0.19</id>
         </vdu-profile>
         <instantiation-level>
-          <id>F5</id>
+          <id>F5 BIG-IP</id>
           <vdu-level>
             <vdu-id>Demo-1_Inside-1_Outside-HA-v16.1.0.19</vdu-id>
           </vdu-level>
         </instantiation-level>
-        <default-instantiation-level>F5</default-instantiation-level>
+        <default-instantiation-level>F5 BIG-IP</default-instantiation-level>
       </df>
     </vnfd>
   </nfv>

@@ -24,54 +24,54 @@
         <size-of-storage>20</size-of-storage>
       </virtual-storage-desc>
       <int-virtual-link-desc>
-        <id>EXTRA</id>
+        <id>Extra</id>
         <connectivity-type>
           <layer-protocol>ethernet</layer-protocol>
         </connectivity-type>
       </int-virtual-link-desc>
       <int-virtual-link-desc>
-        <id>INSIDE</id>
+        <id>Inside</id>
         <connectivity-type>
           <layer-protocol>ethernet</layer-protocol>
         </connectivity-type>
       </int-virtual-link-desc>
       <int-virtual-link-desc>
-        <id>MGMT</id>
+        <id>Management</id>
         <connectivity-type>
           <layer-protocol>ethernet</layer-protocol>
         </connectivity-type>
       </int-virtual-link-desc>
       <int-virtual-link-desc>
-        <id>OUTSIDE</id>
+        <id>Outside</id>
         <connectivity-type>
           <layer-protocol>ethernet</layer-protocol>
         </connectivity-type>
       </int-virtual-link-desc>
       <int-virtual-link-desc>
-        <id>PEER</id>
+        <id>Peer</id>
         <connectivity-type>
           <layer-protocol>ethernet</layer-protocol>
         </connectivity-type>
       </int-virtual-link-desc>
       <ext-cpd>
-        <id>EXTRA</id>
-        <int-virtual-link-desc>EXTRA</int-virtual-link-desc>
+        <id>Extra</id>
+        <int-virtual-link-desc>Extra</int-virtual-link-desc>
       </ext-cpd>
       <ext-cpd>
-        <id>INSIDE</id>
-        <int-virtual-link-desc>INSIDE</int-virtual-link-desc>
+        <id>Inside</id>
+        <int-virtual-link-desc>Inside</int-virtual-link-desc>
       </ext-cpd>
       <ext-cpd>
-        <id>MGMT</id>
-        <int-virtual-link-desc>MGMT</int-virtual-link-desc>
+        <id>Management</id>
+        <int-virtual-link-desc>Management</int-virtual-link-desc>
       </ext-cpd>
       <ext-cpd>
-        <id>OUTSIDE</id>
-        <int-virtual-link-desc>OUTSIDE</int-virtual-link-desc>
+        <id>Outside</id>
+        <int-virtual-link-desc>Outside</int-virtual-link-desc>
       </ext-cpd>
       <ext-cpd>
-        <id>PEER</id>
-        <int-virtual-link-desc>PEER</int-virtual-link-desc>
+        <id>Peer</id>
+        <int-virtual-link-desc>Peer</int-virtual-link-desc>
       </ext-cpd>
       <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
         <id>CREATE_ISO</id>
