@@ -1,0 +1,93 @@
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <nfv xmlns="urn:etsi:nfv:yang:etsi-nfv-descriptors">
+    <vnfd xmlns:nfv="urn:etsi:nfv:yang:etsi-nfv-descriptors">
+      <id>Checkpoint_Cloudguard_Security_Gateway</id>
+      <vdu>
+        <id>10Gbps-1_Inside-1_Outside-vR81_12152020-DEV</id>
+        <name>10Gbps-1_Inside-1_Outside-vR81_12152020-DEV</name>
+        <description>Cloudguard Security Gateway with 1 Inside interface and 1 Outside interface</description>
+        <int-cpd>
+          <id>External</id>
+          <int-virtual-link-desc>External</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>R-SRIOV</name>
+            <support-mandatory>true</support-mandatory>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X520|X710|XL710</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">2</interface-id>
+        </int-cpd>
+        <int-cpd>
+          <id>Internal</id>
+          <int-virtual-link-desc>Internal</int-virtual-link-desc>
+          <virtual-network-interface-requirement>
+            <name>R-SRIOV</name>
+            <support-mandatory>true</support-mandatory>
+            <network-interface-requirements>
+              <key>NIC_TYPE</key>
+              <value>X520|X710|XL710</value>
+            </network-interface-requirements>
+            <network-interface-requirements>
+              <key>NW_TYPE</key>
+              <value>SRIOV</value>
+            </network-interface-requirements>
+          </virtual-network-interface-requirement>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">1</interface-id>
+        </int-cpd>
+        <int-cpd>
+          <id>Management</id>
+          <int-virtual-link-desc>Management</int-virtual-link-desc>
+          <layer-protocol>ethernet</layer-protocol>
+          <interface-id xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">0</interface-id>
+          <management xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo"/>
+        </int-cpd>
+        <virtual-compute-desc>2CPU-4GB</virtual-compute-desc>
+        <virtual-storage-desc>100GB</virtual-storage-desc>
+        <sw-image-desc>R81-12152020-DEV</sw-image-desc>
+        <device-type xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+          <generic>
+            <ned-id>checkpoint-gaiaos_rest-gen-1.10</ned-id>
+          </generic>
+        </device-type>
+        <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">user-data</artifact>
+      </vdu>
+      <sw-image-desc>
+        <id>R81-12152020-DEV</id>
+        <name>R81-12152020-DEV</name>
+        <version>R81-12152020-DEV</version>
+        <container-format>bare</container-format>
+        <disk-format>qcow2</disk-format>
+        <image>Check_Point_R81_CloudGuard_Security_Gateway_100G_Generic_12152020_DEV.qcow2</image>
+        <additional-setting xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+          <id>disk_type</id>
+          <value>virtio</value>
+        </additional-setting>
+        <additional-setting xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+          <id>serial_console</id>
+          <value>true</value>
+        </additional-setting>
+      </sw-image-desc>
+      <df>
+        <id>10Gbps-1_Inside-1_Outside-vR81_12152020-DEV</id>
+        <vdu-profile>
+          <id>10Gbps-1_Inside-1_Outside-vR81_12152020-DEV</id>
+        </vdu-profile>
+        <instantiation-level>
+          <id>Checkpoint_Cloudguard_Security_Gateway</id>
+          <vdu-level>
+            <vdu-id>10Gbps-1_Inside-1_Outside-vR81_12152020-DEV</vdu-id>
+          </vdu-level>
+        </instantiation-level>
+        <default-instantiation-level>Checkpoint_Cloudguard_Security_Gateway</default-instantiation-level>
+      </df>
+    </vnfd>
+  </nfv>
+</config>

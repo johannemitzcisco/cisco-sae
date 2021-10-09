@@ -1,0 +1,57 @@
+#cloud-config
+ 
+output:
+  init:
+    output: "/var/log/cloud-init-output.log"
+    error: "/var/log/cloud-init-error.log"
+  config: "/var/log/cloud-config.log"
+ 
+blink_config:
+  configure: "false"
+  gateway_cluster_member: "false"
+  download_info: "true"
+  upload_info: "true"
+  ftw_sic_key: "vpn123"
+ 
+system:
+  hostname: $HOSTNAME
+  domainname: $AUTO_DOMAIN_NAME
+  dns1: $AUTO_NAME_SERVER1
+  dns2: $AUTO_NAME_SERVER2
+  ntp1:
+    address: $AUTO_NTP_SERVER
+    version: 4
+ 
+interfaces:
+  - name: eth0
+    ipv4-address: $MGMT_IP_ADDRESS
+    subnet-length: $MGMT_IP_PREFIX
+  - name: eth1
+    ipv4-address: $NIC_1_IP_ADDRESS
+    subnet-length: $NIC_1_IP_PREFIX
+  - name: eth2
+    ipv4-address: $NIC_2_IP_ADDRESS
+    subnet-length: $NIC_2_IP_PREFIX
+
+routing:
+  default-gw: $MGMT_GATEWAY
+ 
+cpusers:
+ - name: admin
+   shell: /bin/bash
+   password-hash: #[[$1$admin$pLTjLPtPHkOTD.yn6OItG.]]#
+ - name: expert
+   password-hash: #[[$1$admin$pLTjLPtPHkOTD.yn6OItG.]]#
+
+bootcmd:
+ - 'touch /home/admin/bootcmd'
+
+runcmd:
+ - 'touch /home/admin/runcmd'
+
+write_files:
+ - path: /home/admin/write_files
+   permissions: '0644'
+   owner: admin:root
+   content: |
+      write_files content

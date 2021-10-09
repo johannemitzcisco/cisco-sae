@@ -1,0 +1,54 @@
+<config xmlns="http://tail-f.com/ns/config/1.0">
+	<devices xmlns="http://tail-f.com/ns/ncs">
+		<template>
+			<name>esc-vmalive-cp-kpi-data-nic</name>
+			<ned-id>
+				<id xmlns:esc-id="http://tail-f.com/ned/esc-id">esc-id:esc</id>
+				<config>
+					<esc_datamodel xmlns="http://www.cisco.com/esc/esc">
+						<tenants>
+							<tenant>
+								<name>{$TENANT}</name>
+								<deployments>
+									<deployment>
+										<name>{$DEPLOYMENT_NAME}</name>
+										<vm_group>
+											<name>{$VM_GROUP_NAME}</name>
+											<kpi_data>
+												<kpi>
+													<event_name>VM_ALIVE_TCP</event_name>
+													<metric_value>0</metric_value>
+													<metric_cond>EQ</metric_cond>
+													<metric_type>UINT32</metric_type>
+													<metric_occurrences_true>5</metric_occurrences_true>
+													<metric_occurrences_false>5</metric_occurrences_false>
+													<metric_collector>
+														<type>TCPING_SSH_3SEC</type>
+														<nicid>0</nicid>
+														<poll_frequency>15</poll_frequency>
+														<polling_unit>seconds</polling_unit>
+														<continuous_alarm>false</continuous_alarm>
+													</metric_collector>
+												</kpi>
+											</kpi_data>
+											<rules>
+												<admin_rules>
+													<rule>
+														<event_name>VM_ALIVE_TCP</event_name>
+														<action>ALWAYS log</action>
+														<action>FALSE recover autohealing</action>
+														<action>TRUE servicebooted.sh</action>
+													</rule>
+												</admin_rules>
+											</rules>
+										</vm_group>
+									</deployment>
+								</deployments>
+							</tenant>
+						</tenants>
+					</esc_datamodel>
+				</config>
+			</ned-id>
+		</template>
+	</devices>
+</config>

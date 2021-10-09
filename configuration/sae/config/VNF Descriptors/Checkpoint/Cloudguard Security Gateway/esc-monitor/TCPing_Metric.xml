@@ -1,0 +1,31 @@
+<metrics>
+    <metric>
+        <name>TCPING_SSH_3SEC</name>
+        <type>MONITOR_SUCCESS_FAILURE</type>
+        <metaData>
+            <properties>
+                <property>
+                    <name>script_filename</name>
+                    <value>/var/tmp/TCPing_Monitor.py</value>
+                </property>
+                <property>
+                    <name>timeout_sec</name>
+                    <value>3</value>
+                </property>
+                <property>
+                    <name>tcp_port</name>
+                    <value>22</value>
+                </property>
+                <property>
+                    <name>vm_ip_address</name>
+                    <value></value>
+                </property>
+                <property>
+                    <name>enable_events_after_success</name>
+                    <value>true</value>
+                </property>
+            </properties>
+            <type>custom_script</type>
+        </metaData>
+    </metric>
+</metrics>

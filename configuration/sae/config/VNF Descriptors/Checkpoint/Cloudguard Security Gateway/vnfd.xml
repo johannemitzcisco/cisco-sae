@@ -1,0 +1,60 @@
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <nfv xmlns="urn:etsi:nfv:yang:etsi-nfv-descriptors">
+    <vnfd xmlns:nfv="urn:etsi:nfv:yang:etsi-nfv-descriptors">
+      <id>Checkpoint_Cloudguard_Security_Gateway</id>
+      <provider>Checkpoint</provider>
+      <product-name>Cloudguard Security Gateway</product-name>
+      <software-version>Variable</software-version>
+      <version>1</version>
+      <product-info-description>Cloudguard Security Gateway</product-info-description>
+      <vnfm-info>csp-vim:csp-vim</vnfm-info>
+      <virtual-compute-desc>
+        <id>2CPU-4GB</id>
+        <virtual-memory>
+          <size>4.0</size>
+        </virtual-memory>
+        <virtual-cpu>
+          <num-virtual-cpu>2</num-virtual-cpu>
+        </virtual-cpu>
+      </virtual-compute-desc>
+      <virtual-storage-desc>
+        <id>100GB</id>
+        <size-of-storage>100</size-of-storage>
+      </virtual-storage-desc>
+      <int-virtual-link-desc>
+        <id>External</id>
+        <connectivity-type>
+          <layer-protocol>ethernet</layer-protocol>
+        </connectivity-type>
+      </int-virtual-link-desc>
+      <int-virtual-link-desc>
+        <id>Internal</id>
+        <connectivity-type>
+          <layer-protocol>ethernet</layer-protocol>
+        </connectivity-type>
+      </int-virtual-link-desc>
+      <int-virtual-link-desc>
+        <id>Management</id>
+        <connectivity-type>
+          <layer-protocol>ethernet</layer-protocol>
+        </connectivity-type>
+      </int-virtual-link-desc>
+      <ext-cpd>
+        <id>External</id>
+        <int-virtual-link-desc>External</int-virtual-link-desc>
+      </ext-cpd>
+      <ext-cpd>
+        <id>Internal</id>
+        <int-virtual-link-desc>Internal</int-virtual-link-desc>
+      </ext-cpd>
+      <ext-cpd>
+        <id>Management</id>
+        <int-virtual-link-desc>Management</int-virtual-link-desc>
+      </ext-cpd>
+      <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
+        <id>user-data</id>
+      </artifact>
+      <service-type xmlns="http://cisco.com/nso/cisco-saeUi">Checkpoint</service-type>
+    </vnfd>
+  </nfv>
+</config>
