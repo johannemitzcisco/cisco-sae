@@ -1,0 +1,4 @@
+{
+	"hostname": "$F5HOSTNAME",
+	"uuid": "$UUID"
+}
