@@ -1,0 +1,95 @@
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <cfp-catalog xmlns="http://cisco.com/ns/nso/cfp/cfp-catalog">
+    <nf-deployments>
+      <vnfd>
+        <name>F5 BIG-IP</name>
+        <vnfd-deployment xmlns:cfp-catalog="http://cisco.com/ns/nso/cfp/cfp-catalog">
+          <name>Application-Load-Balancer</name>
+          <vnfm-type xmlns:cisco-nfvo="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">cisco-nfvo:netconf</vnfm-type>
+          <vim-type xmlns:cisco-nfvo="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">cisco-nfvo:csp</vim-type>
+          <deployment-flavor>
+            <name>Demo-1_Inside-1_Outside-v16.1.0.19</name>
+            <vdu-profile>
+              <name>Demo-1_Inside-1_Outside-v16.1.0.19</name>
+              <vnf-config>Application-Load-Balancer</vnf-config>
+            </vdu-profile>
+          </deployment-flavor>
+        </vnfd-deployment>
+        <vnf-config>
+          <name>Application-Load-Balancer</name>
+          <managed>
+            <mgmt-authgroup>
+              <name>f5-authgroup</name>
+            </mgmt-authgroup>
+          </managed>
+          <monitoring>
+            <bootup-time>3600</bootup-time>
+            <recovery-wait-time>10</recovery-wait-time>
+            <polling-frequency>15</polling-frequency>
+            <metric-occurrences-success>5</metric-occurrences-success>
+            <metric-occurrences-failure>5</metric-occurrences-failure>
+          </monitoring>
+          <day0>
+            <destination>openstack/latest/meta_data.json</destination>
+            <url>https://149.97.202.206/day0/F5/VD_F5vMP_4VFSA3day0_metadata.txt</url>
+            <var>
+              <name>F5HOSTNAME</name>
+              <value>f5v1-4vfsa3.cisco.com</value>
+            </var>
+            <var>
+              <name>UUID</name>
+              <value>a3c797ed-e5f4-40ef-95be-e2a5a7e1a6a0</value>
+            </var>
+          </day0>
+          <day0>
+            <destination>openstack/latest/user_data</destination>
+            <url>https://149.97.202.206/day0/F5/VD_F5vMP_4VFSA3day0_userdata.txt</url>
+            <var>
+              <name>BIGIP_ADMIN_PASSWORD</name>
+              <value>10-9#One</value>
+            </var>
+            <var>
+              <name>DISABLE_ROOT_LOGIN</name>
+              <value>true</value>
+            </var>
+            <var>
+              <name>F5HOSTNAME</name>
+              <value>f5v1-4vfsa3.cisco.com</value>
+            </var>
+            <var>
+              <name>GUI_SETUP</name>
+              <value>disabled</value>
+            </var>
+            <var>
+              <name>LICENSE_KEY</name>
+              <value>CIHTH-YZOWY-TDBKH-XBFVS-SUAIGIN</value>
+            </var>
+            <var>
+              <name>MANAGEMENT_GUI_PORT</name>
+              <value>8443</value>
+            </var>
+            <var>
+              <name>MGMT_IF</name>
+              <value>management</value>
+            </var>
+            <var>
+              <name>NAME_SERVER</name>
+              <value>171.70.168.183</value>
+            </var>
+            <var>
+              <name>TIMEZONE</name>
+              <value>America/Los_Angeles</value>
+            </var>
+          </day0>
+          <extensions>
+            <vnf-type xmlns="http://com/cisco/nso/sae-common" xmlns:cisco-sae-f5-extension="http://com/cisco/nso/sae/extension/f5">cisco-sae-f5-extension:f5</vnf-type>
+            <disk-storage xmlns="http://com/cisco/nso/sae-common">local</disk-storage>
+            <f5-settings xmlns="http://com/cisco/nso/sae/extension/f5">
+              <license_revoke_sc_path>///opt/cisco/esc_metric_scripts/f5_revoke.exp</license_revoke_sc_path>
+            </f5-settings>
+          </extensions>
+        </vnf-config>
+      </vnfd>
+    </nf-deployments>
+  </cfp-catalog>
+</config>
