@@ -1,7 +1,7 @@
 <config xmlns="http://tail-f.com/ns/config/1.0">
   <nfv xmlns="urn:etsi:nfv:yang:etsi-nfv-descriptors">
     <vnfd xmlns:nfv="urn:etsi:nfv:yang:etsi-nfv-descriptors">
-      <id>Checkpoint Cloudguard Security Gateway</id>
+      <id>Checkpoint-Cloudguard-Security-Gateway</id>
       <vdu>
         <id>10Gbps-1_Inside-1_Outside-vR81_12152020-DEV</id>
         <name>10Gbps-1_Inside-1_Outside-vR81_12152020-DEV</name>
@@ -61,11 +61,10 @@
       </vdu>
       <sw-image-desc>
         <id>R81-12152020-DEV</id>
-        <name>R81-12152020-DEV</name>
+        <name>Check_Point_R81_CloudGuard_Security_Gateway_100G_Generic_12152020_DEV.qcow2</name>
         <version>R81-12152020-DEV</version>
         <container-format>bare</container-format>
         <disk-format>qcow2</disk-format>
-        <image>Check_Point_R81_CloudGuard_Security_Gateway_100G_Generic_12152020_DEV.qcow2</image>
         <additional-setting xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
           <id>disk_type</id>
           <value>virtio</value>
@@ -81,12 +80,12 @@
           <id>10Gbps-1_Inside-1_Outside-vR81_12152020-DEV</id>
         </vdu-profile>
         <instantiation-level>
-          <id>Checkpoint Cloudguard Security Gateway</id>
+          <id>Checkpoint-Cloudguard-Security-Gateway</id>
           <vdu-level>
             <vdu-id>10Gbps-1_Inside-1_Outside-vR81_12152020-DEV</vdu-id>
           </vdu-level>
         </instantiation-level>
-        <default-instantiation-level>Checkpoint Cloudguard Security Gateway</default-instantiation-level>
+        <default-instantiation-level>Checkpoint-Cloudguard-Security-Gateway</default-instantiation-level>
       </df>
     </vnfd>
   </nfv>

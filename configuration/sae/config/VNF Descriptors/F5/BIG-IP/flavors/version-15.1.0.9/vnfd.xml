@@ -1,7 +1,7 @@
 <config xmlns="http://tail-f.com/ns/config/1.0">
   <nfv xmlns="urn:etsi:nfv:yang:etsi-nfv-descriptors">
     <vnfd xmlns:nfv="urn:etsi:nfv:yang:etsi-nfv-descriptors">
-      <id>F5 BIG-IP</id>
+      <id>F5-BIG-IP</id>
       <vdu>
         <id>Demo-1_Inside-1_Outside-v15.1.0.9</id>
         <name>Demo</name>
@@ -170,12 +170,12 @@
           <id>Demo-1_Inside-1_Outside-v15.1.0.9</id>
         </vdu-profile>
         <instantiation-level>
-          <id>F5 BIG-IP</id>
+          <id>F5-BIG-IP</id>
           <vdu-level>
             <vdu-id>Demo-1_Inside-1_Outside-v15.1.0.9</vdu-id>
           </vdu-level>
         </instantiation-level>
-        <default-instantiation-level>F5 BIG-IP</default-instantiation-level>
+        <default-instantiation-level>F5-BIG-IP</default-instantiation-level>
       </df>
       <df>
         <id>Demo-1_Inside-1_Outside-HA-v15.1.0.9</id>
@@ -183,12 +183,12 @@
           <id>Demo-1_Inside-1_Outside-HA-v15.1.0.9</id>
         </vdu-profile>
         <instantiation-level>
-          <id>F5 BIG-IP</id>
+          <id>F5-BIG-IP</id>
           <vdu-level>
             <vdu-id>Demo-1_Inside-1_Outside-HA-v15.1.0.9</vdu-id>
           </vdu-level>
         </instantiation-level>
-        <default-instantiation-level>F5 BIG-IP</default-instantiation-level>
+        <default-instantiation-level>F5-BIG-IP</default-instantiation-level>
       </df>
     </vnfd>
   </nfv>
