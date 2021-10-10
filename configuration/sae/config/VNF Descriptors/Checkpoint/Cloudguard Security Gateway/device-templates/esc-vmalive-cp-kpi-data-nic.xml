@@ -13,6 +13,7 @@
 									<deployment>
 										<name>{$DEPLOYMENT_NAME}</name>
 										<vm_group>
+											<?if contains({$VM_GROUP_NAME}, 'Checkpoint') ?>
 											<name>{$VM_GROUP_NAME}</name>
 											<kpi_data>
 												<kpi tags="delete">
@@ -47,6 +48,7 @@
 													</rule>
 												</admin_rules>
 											</rules>
+											<?end?>
 										</vm_group>
 									</deployment>
 								</deployments>
