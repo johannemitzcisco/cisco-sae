@@ -1,7 +1,7 @@
 hostname $HOSTNAME
 license smart enable
 username admin privilege 15 password $PASSWORD
-ip domain-name $DOMAIN_NAME
+ip domain name $DOMAIN_NAME
 crypto key generate rsa modulus 1024
 !
 enable secret $PASSWORD
@@ -31,9 +31,6 @@ interface GigabitEthernet3
   no negotiation auto
   speed 10000
   no shut
-!
-line pro 0
-  exec-timeout 30 0
 !
 line con 0
   stopbits 1
