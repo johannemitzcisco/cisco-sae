@@ -2,7 +2,7 @@
   <cfp-catalog xmlns="http://cisco.com/ns/nso/cfp/cfp-catalog">
     <nf-deployments>
       <vnfd>
-        <name>F5 BIG-IP</name>
+        <name>F5-BIG-IP</name>
         <vnfd-deployment xmlns:cfp-catalog="http://cisco.com/ns/nso/cfp/cfp-catalog">
           <name>Application-Load-Balancer</name>
           <vnfm-type xmlns:cisco-nfvo="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">cisco-nfvo:netconf</vnfm-type>
