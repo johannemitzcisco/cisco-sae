@@ -1,7 +1,7 @@
 <config xmlns="http://tail-f.com/ns/config/1.0">
   <nfv xmlns="urn:etsi:nfv:yang:etsi-nfv-descriptors">
     <vnfd>
-      <id>Cisco Cloud Services Router</id>
+      <id>Cisco-Cloud-Services-Router</id>
       <vdu>
         <id>Large-2_Endpoint-2_Chain-v9_17_03_04a</id>
         <name>Large 2 Endpoint 2 Chain</name>
@@ -260,12 +260,12 @@
           <id>Large-2_Endpoint-2_Chain-v9_17_03_04a</id>
         </vdu-profile>
         <instantiation-level>
-          <id>Cisco Cloud Services Router</id>
+          <id>Cisco-Cloud-Services-Router</id>
           <vdu-level>
             <vdu-id>Large-2_Endpoint-2_Chain-v9_17_03_04a</vdu-id>
           </vdu-level>
         </instantiation-level>
-        <default-instantiation-level>Cisco Cloud Services Router</default-instantiation-level>
+        <default-instantiation-level>Cisco-Cloud-Services-Router</default-instantiation-level>
       </df>
       <df>
         <id>Large-2_Endpoint-1_Chain-v9_17_03_04a</id>
@@ -273,12 +273,12 @@
           <id>Large-2_Endpoint-1_Chain-v9_17_03_04a</id>
         </vdu-profile>
         <instantiation-level>
-          <id>Cisco Cloud Services Router</id>
+          <id>Cisco-Cloud-Services-Router</id>
           <vdu-level>
             <vdu-id>Large-2_Endpoint-1_Chain-v9_17_03_04a</vdu-id>
           </vdu-level>
         </instantiation-level>
-        <default-instantiation-level>Cisco Cloud Services Router</default-instantiation-level>
+        <default-instantiation-level>Cisco-Cloud-Services-Router</default-instantiation-level>
       </df>
       <df>
         <id>Large-1_Endpoint-1_Chain-v9_17_03_04a</id>
@@ -286,12 +286,12 @@
           <id>Large-1_Endpoint-1_Chain-v9_17_03_04a</id>
         </vdu-profile>
         <instantiation-level>
-          <id>Cisco Cloud Services Router</id>
+          <id>Cisco-Cloud-Services-Router</id>
           <vdu-level>
             <vdu-id>Large-1_Endpoint-1_Chain-v9_17_03_04a</vdu-id>
           </vdu-level>
         </instantiation-level>
-        <default-instantiation-level>Cisco Cloud Services Router</default-instantiation-level>
+        <default-instantiation-level>Cisco-Cloud-Services-Router</default-instantiation-level>
       </df>
       <artifact xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
         <id>iosxe_config.txt</id>
