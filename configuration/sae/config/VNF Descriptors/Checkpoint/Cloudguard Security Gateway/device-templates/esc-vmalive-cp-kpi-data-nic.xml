@@ -17,8 +17,8 @@
 											<kpi_data>
 												<kpi tags="delete">
 													<event_name>VM_ALIVE</event_name>
-												<kpi>
 												</kpi>
+												<kpi>
 													<event_name>VM_ALIVE_TCP</event_name>
 													<metric_value>0</metric_value>
 													<metric_cond>EQ</metric_cond>
