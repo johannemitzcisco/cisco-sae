@@ -15,7 +15,10 @@
 										<vm_group>
 											<name>{$VM_GROUP_NAME}</name>
 											<kpi_data>
+												<kpi tags="delete">
+													<event_name>VM_ALIVE</event_name>
 												<kpi>
+												</kpi>
 													<event_name>VM_ALIVE_TCP</event_name>
 													<metric_value>0</metric_value>
 													<metric_cond>EQ</metric_cond>
@@ -33,6 +36,9 @@
 											</kpi_data>
 											<rules>
 												<admin_rules>
+													<rule tags="delete">
+														<event_name>VM_ALIVE</event_name>
+													</rule>
 													<rule>
 														<event_name>VM_ALIVE_TCP</event_name>
 														<action>ALWAYS log</action>
