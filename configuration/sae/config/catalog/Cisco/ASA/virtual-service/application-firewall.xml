@@ -1,0 +1,41 @@
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <cfp-catalog xmlns="http://cisco.com/ns/nso/cfp/cfp-catalog">
+    <nf-deployments>
+      <vnfd>
+        <name>Cisco_Adaptive_Security_Appliance</name>
+        <vnfd-deployment xmlns:cfp-catalog="http://cisco.com/ns/nso/cfp/cfp-catalog">
+          <name>Application-Firewall</name>
+          <vnfm-type xmlns:cisco-nfvo="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">cisco-nfvo:netconf</vnfm-type>
+          <vim-type xmlns:cisco-nfvo="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">cisco-nfvo:csp</vim-type>
+          <deployment-flavor>
+            <name>10Gbps-1_Inside-1_Outside-v9_14_1_6</name>
+            <vdu-profile>
+              <name>10Gbps-1_Inside-1_Outside-v9_14_1_6</name>
+              <vnf-config>Application-Firewall</vnf-config>
+            </vdu-profile>
+          </deployment-flavor>
+        </vnfd-deployment>
+        <vnf-config xmlns:cfp-catalog="http://cisco.com/ns/nso/cfp/cfp-catalog">
+          <name>Application-Firewall</name>
+          <managed>
+            <mgmt-authgroup>
+              <name>default</name>
+            </mgmt-authgroup>
+          </managed>
+          <monitoring>
+            <bootup-time>300</bootup-time>
+            <recovery-wait-time>120</recovery-wait-time>
+            <polling-frequency>15</polling-frequency>
+            <metric-occurrences-success>3</metric-occurrences-success>
+            <metric-occurrences-failure>1</metric-occurrences-failure>
+          </monitoring>
+          <extensions>
+            <mode xmlns="http://com/cisco/nso/sae-common">routed</mode>
+            <disk-storage xmlns="http://com/cisco/nso/sae-common">local</disk-storage>
+            <support-remote-as xmlns="http://com/cisco/nso/sae-common">true</support-remote-as>
+          </extensions>
+        </vnf-config>
+      </vnfd>
+    </nf-deployments>
+  </cfp-catalog>
+</config>
