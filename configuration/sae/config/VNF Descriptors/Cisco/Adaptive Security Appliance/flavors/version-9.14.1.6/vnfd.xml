@@ -51,7 +51,7 @@
         </int-cpd>
         <virtual-compute-desc>10Gbps-8CPU-32GB</virtual-compute-desc>
         <virtual-storage-desc>8GB</virtual-storage-desc>
-        <sw-image-desc>9.16.2</sw-image-desc>
+        <sw-image-desc>9.14.1.6</sw-image-desc>
         <device-type xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
           <cli>
             <ned-id>cisco-asa-cli-6.13</ned-id>
@@ -120,7 +120,7 @@
         </int-cpd>
         <virtual-compute-desc>10Gbps-8CPU-32GB</virtual-compute-desc>
         <virtual-storage-desc>8GB</virtual-storage-desc>
-        <sw-image-desc>9.16.2</sw-image-desc>
+        <sw-image-desc>9.14.1.6</sw-image-desc>
         <device-type xmlns="http://cisco.com/ns/nso/cfp/cisco-etsi-nfvo">
           <cli>
             <ned-id>cisco-asa-cli-6.13</ned-id>
