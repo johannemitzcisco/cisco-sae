@@ -5,7 +5,7 @@
         <name>Elastic-Services-Controller</name>
         <default-map>
           <remote-name>admin</remote-name>
-          <remote-password>$8$Q38wlBNpxFc0FbZ68MNqwwGjIXTQZw53bt8KPAYfTZ8=</remote-password>
+          <remote-password>Cisco123#</remote-password>
         </default-map>
       </group>
     </authgroups>

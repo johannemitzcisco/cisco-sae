@@ -92,9 +92,9 @@ write_files:
        bgp log-neighbor-changes
        bgp graceful-restart restart-time 120
        neighbor ${NIC_2_NEIGHBOR_1_IP_ADDRESS} remote-as ${NIC_2_NEIGHBOR_1_ASNUMBER}
-       neighbor ${NIC_2_NEIGHBOR_1_IP_ADDRESS} local-as ${NIC_2_NEIGHBOR_1_REMOTE_LOCAL_AS}
+     !  neighbor ${NIC_2_NEIGHBOR_1_IP_ADDRESS} local-as ${NIC_2_NEIGHBOR_1_REMOTE_LOCAL_AS}
        neighbor ${NIC_3_NEIGHBOR_1_IP_ADDRESS} remote-as ${NIC_3_NEIGHBOR_1_ASNUMBER}
-       neighbor ${NIC_3_NEIGHBOR_2_IP_ADDRESS} remote-as ${NIC_3_NEIGHBOR_1_ASNUMBER}
+     !  neighbor ${NIC_3_NEIGHBOR_2_IP_ADDRESS} remote-as ${NIC_3_NEIGHBOR_1_ASNUMBER}
        max-paths ebgp 2
      !
      EOF

@@ -4,9 +4,9 @@
       <name>Demonstration</name>
       <networkservice-deployment xmlns:cfp-catalog="http://cisco.com/ns/nso/cfp/cfp-catalog">
         <name>Secure-Application-v16</name>
-        <nsd-id>Secure-Application</nsd-id>
+        <nsd-id>Secure-Application-v16</nsd-id>
         <deployment-flavor>
-          <flavor-id>Secure-Application</flavor-id>
+          <flavor-id>Secure-Application-v16</flavor-id>
           <vnf-profile>
             <name>Destination-Router</name>
             <vnfd-deployment>Destination-Router-v16</vnfd-deployment>

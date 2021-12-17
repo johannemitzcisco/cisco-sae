@@ -43,11 +43,21 @@ cpusers:
  - name: expert
    password-hash: #[[$1$admin$pLTjLPtPHkOTD.yn6OItG.]]#
 
+### Allow any host to ssh, needed to check if VNF is alive
+clishcmd:
+ - add allowed-client host any-host
+
+### Needed to allow ssh authentication
 bootcmd:
  - 'touch /home/admin/bootcmd'
 
 runcmd:
  - 'touch /home/admin/runcmd'
+ - 'sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/" /etc/ssh/sshd_config'
+ - 'sed -i "s/PermitRootLogin forced-commands-only/PermitRootLogin yes/" /etc/ssh/sshd_config'
+ - 'echo #Johan was Here >> /etc/ssh/sshd_config'
+ - 'echo "#Johan was Here again" >> /etc/ssh/sshd_config'
+ - 'service sshd reload'
 
 write_files:
  - path: /home/admin/write_files

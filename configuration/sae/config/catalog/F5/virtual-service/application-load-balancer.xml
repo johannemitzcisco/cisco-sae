@@ -85,7 +85,7 @@
             <vnf-type xmlns="http://com/cisco/nso/sae-common" xmlns:cisco-sae-f5-extension="http://com/cisco/nso/sae/extension/f5">cisco-sae-f5-extension:f5</vnf-type>
             <disk-storage xmlns="http://com/cisco/nso/sae-common">local</disk-storage>
             <f5-settings xmlns="http://com/cisco/nso/sae/extension/f5">
-              <license_revoke_sc_path>///opt/cisco/esc_metric_scripts/f5_revoke.exp</license_revoke_sc_path>
+              <license_revoke_sc_path>/opt/cisco/esc/esc_metric_scripts/f5_revoke.exp</license_revoke_sc_path>
             </f5-settings>
           </extensions>
         </vnf-config>
